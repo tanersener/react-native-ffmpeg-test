@@ -35,9 +35,10 @@ end
 # do not allow Cocoapods to manage React dependencies
 post_install do |installer|
     installer.pods_project.targets.each do |target|
-        if target.name == "React"
-            target.remove_from_project
-        end
+      targets_to_ignore = %w(React yoga)
+      if targets_to_ignore.include? target.name
+        target.remove_from_project
+      end
     end
 end
 
