@@ -1,6 +1,8 @@
 platform :ios, '9.0'
 
-target "ReactNativeFFmpegTest" do
+use_frameworks!
+
+target "ReactNativeFFmpegIOSFrameworkTest" do
 
   pod 'react-native-ffmpeg', :podspec => '../node_modules/react-native-ffmpeg/ios/react-native-ffmpeg.podspec'
 
