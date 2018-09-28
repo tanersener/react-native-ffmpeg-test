@@ -1,13 +1,11 @@
 platform :ios, '9.0'
 
+install! 'cocoapods', :deterministic_uuids => false
+
 use_frameworks!
 
 target "ReactNativeFFmpegIOSFrameworkTest" do
 
-  pod 'react-native-ffmpeg', :podspec => '../node_modules/react-native-ffmpeg/ios/react-native-ffmpeg.podspec'
-
-  pod 'RNFS', :path => '../node_modules/react-native-fs'
-  
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
     'Core',
     'jschelpers',
@@ -30,4 +28,18 @@ target "ReactNativeFFmpegIOSFrameworkTest" do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
 
+  pod 'react-native-ffmpeg', :podspec => '../node_modules/react-native-ffmpeg/ios/react-native-ffmpeg.podspec'
+
+  pod 'RNFS', :path => '../node_modules/react-native-fs'
+
 end
+
+# do not allow Cocoapods to manage React dependencies
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        if target.name == "React"
+            target.remove_from_project
+        end
+    end
+end
+
