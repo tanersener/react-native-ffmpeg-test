@@ -1,5 +1,5 @@
 # react-native-ffmpeg-test
-test applications for react-native-ffmpeg
+test applications for [react-native-ffmpeg](https://github.com/tanersener/react-native-ffmpeg)
 
 
 `default` -> Generic `react-native-ffmpeg` integration, using `cocoapods` for ios and not using frameworks.
