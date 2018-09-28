@@ -1,7 +1,5 @@
 platform :ios, '9.0'
 
-install! 'cocoapods', :deterministic_uuids => false
-
 use_frameworks!
 
 target "ReactNativeFFmpegIOSFrameworkTest" do
@@ -33,13 +31,3 @@ target "ReactNativeFFmpegIOSFrameworkTest" do
   pod 'RNFS', :path => '../node_modules/react-native-fs'
 
 end
-
-# do not allow Cocoapods to manage React dependencies
-post_install do |installer|
-    installer.pods_project.targets.each do |target|
-        if target.name == "React"
-            target.remove_from_project
-        end
-    end
-end
-
