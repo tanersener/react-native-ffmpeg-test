@@ -6,7 +6,19 @@ import RNFS from 'react-native-fs';
 import { VideoUtil } from './VideoUtil';
 
 async function execute(command) {
-    await RNFFmpeg.execute(command).then(data => {
+    await RNFFmpeg.execute(command, " ").then(data => {
+        console.log("FFmpeg process exited with rc " + data.rc);
+    });
+}
+
+async function executeWithDelimiter(command, delimiter) {
+    await RNFFmpeg.execute(command, delimiter).then(data => {
+        console.log("FFmpeg process exited with rc " + data.rc);
+    });
+}
+
+async function executeWithArguments(commandArguments) {
+    await RNFFmpeg.executeWithArguments(commandArguments).then(data => {
         console.log("FFmpeg process exited with rc " + data.rc);
     });
 }
@@ -61,6 +73,64 @@ class CommandScreen extends React.Component {
         this.setState({commandOutput: this.state.commandOutput + logData.log});
     };
 
+    printExternalLibraries() {
+        console.log("Printing external libraries.");
+
+        RNFFmpeg.getPackageName().then(result => {
+            console.log("Package name: " + result.packageName);
+        });
+
+        RNFFmpeg.getExternalLibraries().then(result => {
+            console.log("External libraries: " + result);
+        });
+    }
+
+    printLastCommandResult() {
+        console.log("Printing last command result.");
+
+        RNFFmpeg.getLastReturnCode().then(result => {
+            console.log("Last return code: " + result.lastRc);
+        });
+
+        RNFFmpeg.getLastCommandOutput().then(result => {
+            console.log("Last command output: " + result.lastCommandOutput);
+        });
+    }
+
+    runWithDelimiter = () => {
+        this.printExternalLibraries();
+
+        this.printLastCommandResult();
+
+        RNFFmpeg.enableLogCallback(this.logCallback);
+
+        // CLEAR COMMAND OUTPUT FIRST
+        this.setState({commandOutput:''});
+
+        console.log("Testing COMMAND with DELIMITER.");
+
+        console.log("FFmpeg process started with command and delimiter.");
+        console.log(this.state.command);
+
+        if ((this.state.command !== undefined) && (this.state.command.length > 0)) {
+            executeWithDelimiter(this.state.command, "%");
+        }
+
+    };
+
+    runWithArguments = () => {
+        RNFFmpeg.enableLogCallback(this.logCallback);
+
+        // CLEAR COMMAND OUTPUT FIRST
+        this.setState({commandOutput:''});
+
+        console.log("Testing COMMAND with ARGUMENTS.");
+
+        console.log("FFmpeg process started with arguments");
+
+        executeWithArguments(["-v", "debug", "-version"]);
+    };
+
     run = () => {
 
         RNFFmpeg.enableLogCallback(this.logCallback);
@@ -70,7 +140,7 @@ class CommandScreen extends React.Component {
 
         console.log("Testing COMMAND.");
 
-        console.log("FFmpeg process started with arguments");
+        console.log("FFmpeg process started with command.");
         console.log(this.state.command);
 
         if ((this.state.command !== undefined) && (this.state.command.length > 0)) {
@@ -132,7 +202,89 @@ class VideoScreen extends React.Component {
 
     statisticsCallback = (statisticsData) => {
         console.log('Statistics; frame: ' + statisticsData.videoFrameNumber.toFixed(1) + ', fps: ' + statisticsData.videoFps.toFixed(1) + ', quality: ' + statisticsData.videoQuality.toFixed(1) +
-        ', size: ' + statisticsData.size + ', time: ' + statisticsData.time);
+            ', size: ' + statisticsData.size + ', time: ' + statisticsData.time);
+    };
+
+    getMediaInformation = () => {
+        RNFFmpeg.getMediaInformation(RNFS.CachesDirectoryPath + '/video.mp4').then(result => {
+            console.log('\n');
+            console.log('Result: ' + JSON.stringify(result));
+            console.log('Media Information');
+            if (result.path) {
+                console.log('Path: ' + result.path);
+            }
+            if (result.format) {
+                console.log('Format: ' + result.format);
+            }
+            if (result.duration) {
+                console.log('Duration: ' + result.duration);
+            }
+            if (result.startTime) {
+                console.log('Start time: ' + result.startTime);
+            }
+            if (result.bitrate) {
+                console.log('Bitrate: ' + result.bitrate);
+            }
+            if (result.streams) {
+                for (var i = 0; i < result.streams.length; i++) {
+                    if (result.streams[i].index) {
+                        console.log('Stream id: ' + result.streams[i].index);
+                    }
+                    if (result.streams[i].type) {
+                        console.log('Stream type: ' + result.streams[i].type);
+                    }
+                    if (result.streams[i].codec) {
+                        console.log('Stream codec: ' + result.streams[i].codec);
+                    }
+                    if (result.streams[i].fullCodec) {
+                        console.log('Stream full codec: ' + result.streams[i].fullCodec);
+                    }
+                    if (result.streams[i].format) {
+                        console.log('Stream format: ' + result.streams[i].format);
+                    }
+                    if (result.streams[i].fullFormat) {
+                        console.log('Stream full format: ' + result.streams[i].fullFormat);
+                    }
+                    if (result.streams[i].width) {
+                        console.log('Stream width: ' + result.streams[i].width);
+                    }
+                    if (result.streams[i].height) {
+                        console.log('Stream height: ' + result.streams[i].height);
+                    }
+                    if (result.streams[i].bitrate) {
+                        console.log('Stream bitrate: ' + result.streams[i].bitrate);
+                    }
+                    if (result.streams[i].sampleRate) {
+                        console.log('Stream sample rate: ' + result.streams[i].sampleRate);
+                    }
+                    if (result.streams[i].sampleFormat) {
+                        console.log('Stream sample format: ' + result.streams[i].sampleFormat);
+                    }
+                    if (result.streams[i].channelLayout) {
+                        console.log('Stream channel layout: ' + result.streams[i].channelLayout);
+                    }
+                    if (result.streams[i].sampleAspectRatio) {
+                        console.log('Stream sar: ' + result.streams[i].sampleAspectRatio);
+                    }
+                    if (result.streams[i].displayAspectRatio) {
+                        console.log('Stream dar: ' + result.streams[i].displayAspectRatio);
+                    }
+                    if (result.streams[i].averageFrameRate) {
+                        console.log('Stream average frame rate: ' + result.streams[i].averageFrameRate);
+                    }
+                    if (result.streams[i].realFrameRate) {
+                        console.log('Stream real frame rate: ' + result.streams[i].realFrameRate);
+                    }
+                    if (result.streams[i].timeBase) {
+                        console.log('Stream time base: ' + result.streams[i].timeBase);
+                    }
+                    if (result.streams[i].codecTimeBase) {
+                        console.log('Stream codec time base: ' + result.streams[i].codecTimeBase);
+                    }
+                }
+            }
+            console.log('\n');
+        });
     };
 
     createVideo = () => {
@@ -156,7 +308,9 @@ class VideoScreen extends React.Component {
                     let command = VideoUtil.generateEncodeVideoScript(image1, image2, image3, videoPath, this.state.videoCodec, '');
                     console.log(command);
 
-                    execute(command);
+                    execute(command).then(rc => {
+                        this.getMediaInformation();
+                    });
 
                 }).catch((err) => {
                     console.log('Failed to save resource: tajmahal.jpg');
