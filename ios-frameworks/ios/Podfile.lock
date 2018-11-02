@@ -6,10 +6,10 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.4)
-  - mobile-ffmpeg-https (2.1.1)
+  - mobile-ffmpeg-https (3.0)
   - React (0.56.1):
     - React/Core (= 0.56.1)
-  - react-native-ffmpeg (0.1.3):
+  - react-native-ffmpeg (0.2.1):
     - mobile-ffmpeg-https
     - React
   - React/Core (0.56.1):
@@ -49,7 +49,7 @@ PODS:
     - React/Core
     - React/fishhook
     - React/RCTBlob
-  - RNFS (2.11.17):
+  - RNFS (2.12.1):
     - React
   - yoga (0.56.1.React)
 
@@ -95,20 +95,20 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   react-native-ffmpeg:
-    :commit: 8832be5c295bf98781b9310ca896ceb9c9ed73c1
+    :commit: e3e925186704279f728441e513f14b9c78e3fead
     :git: https://github.com/tanersener/react-native-ffmpeg.git
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  DoubleConversion: a6ec5115d02a687c3a7350d6462b8c3e744bfa41
-  Folly: fa458a15230e6bee654f3e2b25f6be60f0b61bf3
-  glog: cffdcd539a4fed795bdf0146afde6dd4a981576c
-  mobile-ffmpeg-https: 7d7c1fea8950cca139f6bb3b6c012084d5e6bacd
-  React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
-  react-native-ffmpeg: b82590518f94a812202afb3f5301f6de1c58f50b
-  RNFS: bbb1a64eb245763daf34aea86f97c97c4e85f74c
-  yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
+  DoubleConversion: a9706f16e388b53ff12cca34473428ee29746a26
+  Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
+  glog: b3b0330915eccea41c5cc9731a77cf564a9be5ea
+  mobile-ffmpeg-https: 3894f102e797bdaddfa5167decb6fc3d01ed8d1e
+  React: 5762f784e03a9bad2567eead64c74de9335029e3
+  react-native-ffmpeg: 9060302ba50e669da2641c670db0420fe9604093
+  RNFS: 0f4d630b538e93e0e9e3519ff0b7b7b48760d8ed
+  yoga: b9ed4d1df8b304449cc4d7f72c268eeaac2bbf85
 
 PODFILE CHECKSUM: 43fb321d08c13f31281abef0463bdba0d10a709e
 
-COCOAPODS: 1.6.0.beta.1
+COCOAPODS: 1.6.0.beta.2
