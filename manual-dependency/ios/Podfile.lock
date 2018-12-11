@@ -6,7 +6,7 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.4)
-  - mobile-ffmpeg-https (3.0)
+  - mobile-ffmpeg-https (3.1)
   - React (0.56.1):
     - React/Core (= 0.56.1)
   - react-native-ffmpeg (0.2.1):
@@ -103,7 +103,7 @@ SPEC CHECKSUMS:
   DoubleConversion: a9706f16e388b53ff12cca34473428ee29746a26
   Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
   glog: b3b0330915eccea41c5cc9731a77cf564a9be5ea
-  mobile-ffmpeg-https: 3894f102e797bdaddfa5167decb6fc3d01ed8d1e
+  mobile-ffmpeg-https: b4319ab7a7739c6e4c92f146c8c0d75570890e92
   React: 5762f784e03a9bad2567eead64c74de9335029e3
   react-native-ffmpeg: 9060302ba50e669da2641c670db0420fe9604093
   RNFS: 0f4d630b538e93e0e9e3519ff0b7b7b48760d8ed
