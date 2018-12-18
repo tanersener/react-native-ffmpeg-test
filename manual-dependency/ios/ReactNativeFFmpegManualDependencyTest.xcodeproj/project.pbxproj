@@ -563,6 +563,7 @@
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				4366546586520B728E1DCAC3 /* [CP] Embed Pods Frameworks */,
+				3402168321C8C71D00AB53E6 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -947,12 +948,23 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		4366546586520B728E1DCAC3 /* [CP] Embed Pods Frameworks */ = {
+		3402168321C8C71D00AB53E6 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo \"Applying patch for https://github.com/tanersener/react-native-ffmpeg/issues/22\"\ncd \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\nINFO_PLIST_FILES=$(find . -name Info.plist | grep 'libswresample\\|libavfilter\\|libavformat\\|libavutil\\|libswscale\\|libavdevice\\|libavcodec\\|mobileffmpeg')\n\nfor INFO_PLIST in ${INFO_PLIST_FILES};\ndo\nexisting_key_line_number=$(sed -n '/MinimumOS/=' ${INFO_PLIST})\nif [[ -z ${existing_key_line_number} ]]; then\nsed -i .tmp \"s/<\\/dict/    <key>MinimumOSVersion<\\/key>\\\\\n<string>9.3<\\/string>\\\\\n<\\/dict/g\" ${INFO_PLIST}\nrm -f \"${INFO_PLIST}.tmp\"\necho \"Patch added MinimumOSVersion key & value at ${INFO_PLIST}\"\nelse\nsed -i .tmp \"$((existing_key_line_number+1))s/.*/        <string>9.3<\\/string>/\" ${INFO_PLIST}\nrm -f \"${INFO_PLIST}.tmp\"\necho \"Patch replaced MinimumOSVersion value at ${INFO_PLIST}\"\nfi\ndone";
+		};
+		4366546586520B728E1DCAC3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeFFmpegManualDependencyTest/Pods-ReactNativeFFmpegManualDependencyTest-frameworks.sh",
@@ -966,8 +978,6 @@
 				"${PODS_ROOT}/mobile-ffmpeg-https/libswscale.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/mobileffmpeg.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavcodec.framework",
@@ -988,15 +998,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-ReactNativeFFmpegManualDependencyTest-checkManifestLockResult.txt",
 			);
