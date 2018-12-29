@@ -560,7 +560,6 @@
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				A52B9F3AA9E9E4496C129A40 /* [CP] Embed Pods Frameworks */,
 				342C5DA721C7B5BB005A5C6A /* ShellScript */,
 			);
 			buildRules = (
@@ -959,38 +958,6 @@
 			shellPath = /bin/sh;
 			shellScript = "echo \"Applying patch for https://github.com/tanersener/react-native-ffmpeg/issues/22\"\ncd \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}\"\n\nINFO_PLIST_FILES=$(find . -name Info.plist | grep 'libswresample\\|libavfilter\\|libavformat\\|libavutil\\|libswscale\\|libavdevice\\|libavcodec\\|mobileffmpeg')\n\nfor INFO_PLIST in ${INFO_PLIST_FILES};\ndo\nexisting_key_line_number=$(sed -n '/MinimumOS/=' ${INFO_PLIST})\nif [[ -z ${existing_key_line_number} ]]; then\nsed -i .tmp \"s/<\\/dict/    <key>MinimumOSVersion<\\/key>\\\\\n<string>9.3<\\/string>\\\\\n<\\/dict/g\" ${INFO_PLIST}\nrm -f \"${INFO_PLIST}.tmp\"\necho \"Patch added MinimumOSVersion key & value at ${INFO_PLIST}\"\nelse\nsed -i .tmp \"$((existing_key_line_number+1))s/.*/        <string>9.3<\\/string>/\" ${INFO_PLIST}\nrm -f \"${INFO_PLIST}.tmp\"\necho \"Patch replaced MinimumOSVersion value at ${INFO_PLIST}\"\nfi\ndone";
 		};
-		A52B9F3AA9E9E4496C129A40 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeFFmpegTest/Pods-ReactNativeFFmpegTest-frameworks.sh",
-				"${PODS_ROOT}/mobile-ffmpeg-https/mobileffmpeg.framework",
-				"${PODS_ROOT}/mobile-ffmpeg-https/libavcodec.framework",
-				"${PODS_ROOT}/mobile-ffmpeg-https/libavdevice.framework",
-				"${PODS_ROOT}/mobile-ffmpeg-https/libavfilter.framework",
-				"${PODS_ROOT}/mobile-ffmpeg-https/libavformat.framework",
-				"${PODS_ROOT}/mobile-ffmpeg-https/libavutil.framework",
-				"${PODS_ROOT}/mobile-ffmpeg-https/libswresample.framework",
-				"${PODS_ROOT}/mobile-ffmpeg-https/libswscale.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/mobileffmpeg.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavcodec.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavdevice.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavfilter.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavformat.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libavutil.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libswresample.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/libswscale.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeFFmpegTest/Pods-ReactNativeFFmpegTest-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		B8F22C41583D24569CF85583 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1046,13 +1013,14 @@
 				DEVELOPMENT_TEAM = 98GD5J4999;
 				HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/Headers/Public\"/**";
 				INFOPLIST_FILE = ReactNativeFFmpegTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.arthenica.reactnativeffmpeg.ReactNativeFFmpegTest;
 				PRODUCT_NAME = ReactNativeFFmpegTest;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -1067,13 +1035,14 @@
 				DEVELOPMENT_TEAM = 98GD5J4999;
 				HEADER_SEARCH_PATHS = "\"${PODS_ROOT}/Headers/Public\"/**";
 				INFOPLIST_FILE = ReactNativeFFmpegTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.arthenica.reactnativeffmpeg.ReactNativeFFmpegTest;
 				PRODUCT_NAME = ReactNativeFFmpegTest;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
