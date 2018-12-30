@@ -11,7 +11,7 @@ dependency management mechanism applied.
   - Not using frameworks.
   - Podfile
 ```
-platform :ios, '9.0'
+platform :ios, '9.3'
 
 target "ReactNativeFFmpegTest" do
 
@@ -42,6 +42,16 @@ target "ReactNativeFFmpegTest" do
   pod 'RNFS', :path => '../node_modules/react-native-fs'
 
 end
+
+# do not allow Cocoapods to manage React dependencies
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      targets_to_ignore = %w(React yoga)
+      if targets_to_ignore.include? target.name
+        target.remove_from_project
+      end
+    end
+end
 ```
 
 **2.** `ios-frameworks` -> IOS only `react-native-ffmpeg` integration
@@ -51,7 +61,7 @@ end
   - Using frameworks.
   - Podfile
 ```
-platform :ios, '9.0'
+platform :ios, '9.3'
 
 use_frameworks!
 
@@ -93,7 +103,7 @@ end
   - Not using frameworks.
   - Podfile
 ```
-platform :ios, '9.0'
+platform :ios, '9.3'
 
 install! 'cocoapods', :deterministic_uuids => false
 
@@ -136,5 +146,4 @@ post_install do |installer|
       end
     end
 end
-
 ```
