@@ -1,20 +1,16 @@
 import React from 'react';
-import { Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { createBottomTabNavigator } from 'react-navigation';
-import { RNFFmpeg } from 'react-native-ffmpeg';
+import {Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
+import {createBottomTabNavigator} from 'react-navigation';
+import {RNFFmpeg} from 'react-native-ffmpeg';
 import RNFS from 'react-native-fs';
-import { VideoUtil } from './VideoUtil';
+import {VideoUtil} from './VideoUtil';
 
 async function execute(command) {
-    await RNFFmpeg.execute(command, " ").then(data => {
-        console.log("FFmpeg process exited with rc " + data.rc);
-    });
+    await RNFFmpeg.execute(command, " ").then(result => console.log("FFmpeg process exited with rc " + result.rc));
 }
 
 async function executeWithDelimiter(command, delimiter) {
-    await RNFFmpeg.execute(command, delimiter).then(data => {
-        console.log("FFmpeg process exited with rc " + data.rc);
-    });
+    await RNFFmpeg.execute(command, delimiter).then(result => console.log("FFmpeg process exited with rc " + result.rc));
 }
 
 async function executeWithArguments(commandArguments) {
@@ -105,7 +101,7 @@ class CommandScreen extends React.Component {
         RNFFmpeg.enableLogCallback(this.logCallback);
 
         // CLEAR COMMAND OUTPUT FIRST
-        this.setState({commandOutput:''});
+        this.setState({commandOutput: ''});
 
         console.log("Testing COMMAND with DELIMITER.");
 
@@ -122,7 +118,7 @@ class CommandScreen extends React.Component {
         RNFFmpeg.enableLogCallback(this.logCallback);
 
         // CLEAR COMMAND OUTPUT FIRST
-        this.setState({commandOutput:''});
+        this.setState({commandOutput: ''});
 
         console.log("Testing COMMAND with ARGUMENTS.");
 
@@ -136,7 +132,7 @@ class CommandScreen extends React.Component {
         RNFFmpeg.enableLogCallback(this.logCallback);
 
         // CLEAR COMMAND OUTPUT FIRST
-        this.setState({commandOutput:''});
+        this.setState({commandOutput: ''});
 
         console.log("Testing COMMAND.");
 
@@ -202,7 +198,7 @@ class VideoScreen extends React.Component {
 
     statisticsCallback = (statisticsData) => {
         console.log('Statistics; frame: ' + statisticsData.videoFrameNumber.toFixed(1) + ', fps: ' + statisticsData.videoFps.toFixed(1) + ', quality: ' + statisticsData.videoQuality.toFixed(1) +
-        ', size: ' + statisticsData.size + ', time: ' + statisticsData.time);
+            ', size: ' + statisticsData.size + ', time: ' + statisticsData.time);
     };
 
     getMediaInformation = () => {
