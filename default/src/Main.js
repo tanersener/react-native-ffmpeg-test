@@ -201,82 +201,40 @@ class VideoScreen extends React.Component {
             ', size: ' + statisticsData.size + ', time: ' + statisticsData.time);
     };
 
+    getLastReceivedStatistics = () => {
+        RNFFmpeg.getLastReceivedStatistics().then(stats => console.log('Stats: ' + JSON.stringify(stats)));
+    };
+
     getMediaInformation = () => {
-        RNFFmpeg.getMediaInformation(RNFS.CachesDirectoryPath + '/video.mp4').then(result => {
+        RNFFmpeg.getMediaInformation(RNFS.CachesDirectoryPath + '/video.mp4').then(info => {
             console.log('\n');
-            console.log('Result: ' + JSON.stringify(result));
+            console.log('Result: ' + JSON.stringify(info));
             console.log('Media Information');
-            if (result.path) {
-                console.log('Path: ' + result.path);
-            }
-            if (result.format) {
-                console.log('Format: ' + result.format);
-            }
-            if (result.duration) {
-                console.log('Duration: ' + result.duration);
-            }
-            if (result.startTime) {
-                console.log('Start time: ' + result.startTime);
-            }
-            if (result.bitrate) {
-                console.log('Bitrate: ' + result.bitrate);
-            }
-            if (result.streams) {
-                for (var i = 0; i < result.streams.length; i++) {
-                    if (result.streams[i].index) {
-                        console.log('Stream id: ' + result.streams[i].index);
-                    }
-                    if (result.streams[i].type) {
-                        console.log('Stream type: ' + result.streams[i].type);
-                    }
-                    if (result.streams[i].codec) {
-                        console.log('Stream codec: ' + result.streams[i].codec);
-                    }
-                    if (result.streams[i].fullCodec) {
-                        console.log('Stream full codec: ' + result.streams[i].fullCodec);
-                    }
-                    if (result.streams[i].format) {
-                        console.log('Stream format: ' + result.streams[i].format);
-                    }
-                    if (result.streams[i].fullFormat) {
-                        console.log('Stream full format: ' + result.streams[i].fullFormat);
-                    }
-                    if (result.streams[i].width) {
-                        console.log('Stream width: ' + result.streams[i].width);
-                    }
-                    if (result.streams[i].height) {
-                        console.log('Stream height: ' + result.streams[i].height);
-                    }
-                    if (result.streams[i].bitrate) {
-                        console.log('Stream bitrate: ' + result.streams[i].bitrate);
-                    }
-                    if (result.streams[i].sampleRate) {
-                        console.log('Stream sample rate: ' + result.streams[i].sampleRate);
-                    }
-                    if (result.streams[i].sampleFormat) {
-                        console.log('Stream sample format: ' + result.streams[i].sampleFormat);
-                    }
-                    if (result.streams[i].channelLayout) {
-                        console.log('Stream channel layout: ' + result.streams[i].channelLayout);
-                    }
-                    if (result.streams[i].sampleAspectRatio) {
-                        console.log('Stream sar: ' + result.streams[i].sampleAspectRatio);
-                    }
-                    if (result.streams[i].displayAspectRatio) {
-                        console.log('Stream dar: ' + result.streams[i].displayAspectRatio);
-                    }
-                    if (result.streams[i].averageFrameRate) {
-                        console.log('Stream average frame rate: ' + result.streams[i].averageFrameRate);
-                    }
-                    if (result.streams[i].realFrameRate) {
-                        console.log('Stream real frame rate: ' + result.streams[i].realFrameRate);
-                    }
-                    if (result.streams[i].timeBase) {
-                        console.log('Stream time base: ' + result.streams[i].timeBase);
-                    }
-                    if (result.streams[i].codecTimeBase) {
-                        console.log('Stream codec time base: ' + result.streams[i].codecTimeBase);
-                    }
+            console.log('Path: ' + info.path);
+            console.log('Format: ' + info.format);
+            console.log('Duration: ' + info.duration);
+            console.log('Start time: ' + info.startTime);
+            console.log('Bitrate: ' + info.bitrate);
+            if (info.streams) {
+                for (var i = 0; i < info.streams.length; i++) {
+                    console.log('Stream id: ' + info.streams[i].index);
+                    console.log('Stream type: ' + info.streams[i].type);
+                    console.log('Stream codec: ' + info.streams[i].codec);
+                    console.log('Stream full codec: ' + info.streams[i].fullCodec);
+                    console.log('Stream format: ' + info.streams[i].format);
+                    console.log('Stream full format: ' + info.streams[i].fullFormat);
+                    console.log('Stream width: ' + info.streams[i].width);
+                    console.log('Stream height: ' + info.streams[i].height);
+                    console.log('Stream bitrate: ' + info.streams[i].bitrate);
+                    console.log('Stream sample rate: ' + info.streams[i].sampleRate);
+                    console.log('Stream sample format: ' + info.streams[i].sampleFormat);
+                    console.log('Stream channel layout: ' + info.streams[i].channelLayout);
+                    console.log('Stream sar: ' + info.streams[i].sampleAspectRatio);
+                    console.log('Stream dar: ' + info.streams[i].displayAspectRatio);
+                    console.log('Stream average frame rate: ' + info.streams[i].averageFrameRate);
+                    console.log('Stream real frame rate: ' + info.streams[i].realFrameRate);
+                    console.log('Stream time base: ' + info.streams[i].timeBase);
+                    console.log('Stream codec time base: ' + info.streams[i].codecTimeBase);
                 }
             }
             console.log('\n');
