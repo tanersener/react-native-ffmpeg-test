@@ -28,6 +28,4 @@ target "ReactNativeFFmpegIOSFrameworkTest" do
 
   pod 'react-native-ffmpeg', :podspec => '../node_modules/react-native-ffmpeg/ios/react-native-ffmpeg.podspec'
 
-  pod 'RNFS', :path => '../node_modules/react-native-fs'
-
 end

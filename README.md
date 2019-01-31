@@ -38,8 +38,6 @@ target "ReactNativeFFmpegTest" do
 
   pod 'react-native-ffmpeg', :podspec => '../node_modules/react-native-ffmpeg/ios/react-native-ffmpeg.podspec'
 
-  pod 'RNFS', :path => '../node_modules/react-native-fs'
-
 end
 
 # do not allow Cocoapods to manage React dependencies
@@ -89,8 +87,6 @@ target "ReactNativeFFmpegIOSFrameworkTest" do
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
 
   pod 'react-native-ffmpeg', :podspec => '../node_modules/react-native-ffmpeg/ios/react-native-ffmpeg.podspec'
-
-  pod 'RNFS', :path => '../node_modules/react-native-fs'
 
 end
 

@@ -9,7 +9,7 @@ PODS:
   - mobile-ffmpeg-https (4.2.LTS)
   - React (0.56.1):
     - React/Core (= 0.56.1)
-  - react-native-ffmpeg (0.3.0):
+  - react-native-ffmpeg (0.3.1):
     - mobile-ffmpeg-https (= 4.2.LTS)
     - React
   - React/Core (0.56.1):
@@ -49,8 +49,6 @@ PODS:
     - React/Core
     - React/fishhook
     - React/RCTBlob
-  - RNFS (2.12.1):
-    - React
   - yoga (0.56.1.React)
 
 DEPENDENCIES:
@@ -69,7 +67,6 @@ DEPENDENCIES:
   - React/RCTNetwork (from `../node_modules/react-native`)
   - React/RCTText (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
-  - RNFS (from `../node_modules/react-native-fs`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -88,15 +85,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native"
   react-native-ffmpeg:
     :podspec: "../node_modules/react-native-ffmpeg/ios/react-native-ffmpeg.podspec"
-  RNFS:
-    :path: "../node_modules/react-native-fs"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
-
-CHECKOUT OPTIONS:
-  react-native-ffmpeg:
-    :commit: e44614a2a819a6d7b68e096d86781110f83d7255
-    :git: https://github.com/tanersener/react-native-ffmpeg.git
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
@@ -105,10 +95,9 @@ SPEC CHECKSUMS:
   glog: b3b0330915eccea41c5cc9731a77cf564a9be5ea
   mobile-ffmpeg-https: e08f5a83df33837c2e2d36cbe01e4495977de26f
   React: 5762f784e03a9bad2567eead64c74de9335029e3
-  react-native-ffmpeg: a1ac1076dab562bbffb6dd6fca5d32ca29de0735
-  RNFS: 49e388d2a55328c4ec35a6a2f5b9a8c553eb34b4
+  react-native-ffmpeg: c68d6d3288799e0b17c387067fbc3112390b5e51
   yoga: b9ed4d1df8b304449cc4d7f72c268eeaac2bbf85
 
-PODFILE CHECKSUM: 088add4c533775c246b2dbb0f52bdecbdd0f4c56
+PODFILE CHECKSUM: fdfb55946e0464f3931e2cbaacb941c282e260d9
 
 COCOAPODS: 1.6.0.beta.2
