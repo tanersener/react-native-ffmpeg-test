@@ -93,6 +93,18 @@ class CommandScreen extends React.Component {
         });
     }
 
+    setCustomFontDirectory() {
+        console.log("Registering cache directory as font directory.");
+
+        RNFFmpeg.setFontDirectory(RNFS.CachesDirectoryPath, {my_easy_font_name: "my complex font name", my_font_name_2: "my complex font name"});
+    }
+
+    setFontconfigConfguration() {
+        console.log("Registering cache directory as fontconfig directory.");
+
+        RNFFmpeg.setFontconfigConfigurationPath(RNFS.CachesDirectoryPath);
+    }
+
     runWithDelimiter = () => {
         this.printExternalLibraries();
 
@@ -133,6 +145,9 @@ class CommandScreen extends React.Component {
 
         // CLEAR COMMAND OUTPUT FIRST
         this.setState({commandOutput: ''});
+
+        this.setFontconfigConfguration();
+        this.setCustomFontDirectory();
 
         console.log("Testing COMMAND.");
 
