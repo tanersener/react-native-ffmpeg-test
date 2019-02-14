@@ -107,6 +107,14 @@ android {
             abiFilters "armeabi-v7a", "arm64-v8a", "x86", "x86_64"
         }
     }
+    signingConfigs {
+        localConfig {
+            keyAlias 'androiddebugkey'
+            storeFile file('/home/taner/.android/debug.keystore')
+            storePassword 'android'
+            keyPassword 'android'
+        }
+    }
     splits {
         abi {
             reset()
@@ -116,9 +124,14 @@ android {
         }
     }
     buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+        }
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            signingConfig signingConfigs.localConfig
         }
     }
     // applicationVariants are e.g. debug, release
