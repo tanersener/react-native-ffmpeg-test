@@ -9,6 +9,7 @@
 
 # Add any project specific keep options here:
 
+# Flutter FFmpeg
 -keep class com.arthenica.mobileffmpeg.Config {
     native <methods>;
     void log(int, byte[]);
