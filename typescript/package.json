@@ -1,0 +1,56 @@
+{
+  "name": "ReactNativeFFmpegTest",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "lint": "tslint -p \".\" -t stylish",
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "jest --coverage",
+    "ios": "node node_modules/react-native/local-cli/cli.js run-ios",
+    "android": "node node_modules/react-native/local-cli/cli.js run-android"
+  },
+  "dependencies": {
+    "@types/react-navigation": "^3.0.5",
+    "@types/react-native-ffmpeg": "file:../../react-native-ffmpeg",
+    "react": "16.6.3",
+    "react-native": "0.58.6",
+    "react-native-ffmpeg": "file:../../react-native-ffmpeg",
+    "react-native-fs": "^2.13.3",
+    "react-navigation": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^24.0.11",
+    "@types/react": "^16.8.7",
+    "@types/react-native": "^0.57.38",
+    "@types/react-test-renderer": "^16.8.1",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "24.3.1",
+    "jest": "^24.3.1",
+    "metro-react-native-babel-preset": "0.53.0",
+    "react-native-typescript-transformer": "^1.2.12",
+    "react-test-renderer": "^16.6.3",
+    "ts-jest": "^24.0.0",
+    "tslint": "^5.13.1",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-react": "^3.6.0",
+    "tslint-react-recommended": "^1.0.15",
+    "typescript": "^3.3.3333"
+  },
+  "jest": {
+    "preset": "react-native",
+    "setupFiles": [
+      "./jest/setup.js"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
