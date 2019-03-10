@@ -1,40 +1,39 @@
-import React from 'react';
-import {Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
-import {createAppContainer, createBottomTabNavigator} from 'react-navigation';
-import {RNFFmpeg} from 'react-native-ffmpeg';
-import RNFS from 'react-native-fs';
-import {VideoUtil} from './VideoUtil';
+import * as React from 'react'
+import {Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native'
+import {createAppContainer, createBottomTabNavigator} from 'react-navigation'
+import {LogMessage, RNFFmpeg, Statistics} from 'react-native-ffmpeg'
+import * as RNFS from 'react-native-fs'
+import {VideoUtil} from './VideoUtil'
 
 async function execute(command: string) {
-    await RNFFmpeg.execute(command, " ").then(result => console.log("FFmpeg process exited with rc " + result.rc));
+    await RNFFmpeg.execute(command, ' ').then(result => console.log('FFmpeg process exited with rc ' + result.rc));
 }
 
 async function executeWithDelimiter(command: string, delimiter: string) {
-    await RNFFmpeg.execute(command, delimiter).then(result => console.log("FFmpeg process exited with rc " + result.rc));
+    await RNFFmpeg.execute(command, delimiter).then(result => console.log('FFmpeg process exited with rc ' + result.rc));
 }
 
-async function executeWithArguments(commandArguments) {
+async function executeWithArguments(commandArguments: string[]) {
     await RNFFmpeg.executeWithArguments(commandArguments).then(data => {
-        console.log("FFmpeg process exited with rc " + data.rc);
-    });
+        console.log('FFmpeg process exited with rc ' + data.rc)
+    })
 }
 
-class CommandScreen extends React.Component {
-    constructor(props) {
+class CommandScreen extends React.Component<any, any> {
+    constructor(props: any) {
         super(props);
 
         this.state = {
             command: '',
             commandOutput: ''
-        };
+        }
     }
 
     render() {
         return (
             <View style={commandScreenStyles.screenStyle}>
                 <View style={commandScreenStyles.headerViewStyle}>
-                    <Text
-                        style={commandScreenStyles.headerTextStyle}>
+                    <Text style={commandScreenStyles.headerTextStyle}>
                         ReactNativeFFmpegTest
                     </Text>
                 </View>
@@ -43,16 +42,14 @@ class CommandScreen extends React.Component {
                         style={commandScreenStyles.commandTextInputStyle}
                         autoCapitalize='none'
                         autoCorrect={false}
-                        placeholder="Enter command"
-                        underlineColorAndroid="transparent"
+                        placeholder='Enter command'
+                        underlineColorAndroid='transparent'
                         onChangeText={(command) => this.setState({command})}
                         value={this.state.command}
                     />
                 </View>
                 <View style={commandScreenStyles.runViewStyle}>
-                    <TouchableOpacity
-                        style={commandScreenStyles.runButtonStyle}
-                        onPress={this.run}>
+                    <TouchableOpacity style={commandScreenStyles.runButtonStyle} onPress={this.run}>
                         <Text style={commandScreenStyles.buttonTextStyle}>RUN</Text>
                     </TouchableOpacity>
                 </View>
@@ -63,47 +60,47 @@ class CommandScreen extends React.Component {
                 </View>
             </View>
         );
-    };
+    }
 
-    logCallback = (logData) => {
-        this.setState({commandOutput: this.state.commandOutput + logData.log});
+    logCallback = (logData: LogMessage) => {
+        this.setState({commandOutput: this.state.commandOutput + logData.text});
     };
 
     printExternalLibraries() {
-        console.log("Printing external libraries.");
+        console.log('Printing external libraries.');
 
         RNFFmpeg.getPackageName().then(result => {
-            console.log("Package name: " + result.packageName);
+            console.log('Package name: ' + result.packageName);
         });
 
         RNFFmpeg.getExternalLibraries().then(result => {
-            console.log("External libraries: " + result);
+            console.log('External libraries: ' + result);
         });
     }
 
     printLastCommandResult() {
-        console.log("Printing last command result.");
+        console.log('Printing last command result.');
 
         RNFFmpeg.getLastReturnCode().then(result => {
-            console.log("Last return code: " + result.lastRc);
+            console.log('Last return code: ' + result.lastRc);
         });
 
         RNFFmpeg.getLastCommandOutput().then(result => {
-            console.log("Last command output: " + result.lastCommandOutput);
+            console.log('Last command output: ' + result.lastCommandOutput);
         });
     }
 
     setCustomFontDirectory() {
-        console.log("Registering cache directory as font directory.");
+        console.log('Registering cache directory as font directory.');
 
         RNFFmpeg.setFontDirectory(RNFS.CachesDirectoryPath, {
-            my_easy_font_name: "my complex font name",
-            my_font_name_2: "my complex font name"
+            my_easy_font_name: 'my complex font name',
+            my_font_name_2: 'my complex font name'
         });
     }
 
     setFontconfigConfguration() {
-        console.log("Registering cache directory as fontconfig directory.");
+        console.log('Registering cache directory as fontconfig directory.');
 
         RNFFmpeg.setFontconfigConfigurationPath(RNFS.CachesDirectoryPath);
     }
@@ -118,13 +115,13 @@ class CommandScreen extends React.Component {
         // CLEAR COMMAND OUTPUT FIRST
         this.setState({commandOutput: ''});
 
-        console.log("Testing COMMAND with DELIMITER.");
+        console.log('Testing COMMAND with DELIMITER.');
 
-        console.log("FFmpeg process started with command and delimiter.");
+        console.log('FFmpeg process started with command and delimiter.');
         console.log(this.state.command);
 
         if ((this.state.command !== undefined) && (this.state.command.length > 0)) {
-            executeWithDelimiter(this.state.command, "%");
+            executeWithDelimiter(this.state.command, '%');
         }
 
     };
@@ -135,11 +132,11 @@ class CommandScreen extends React.Component {
         // CLEAR COMMAND OUTPUT FIRST
         this.setState({commandOutput: ''});
 
-        console.log("Testing COMMAND with ARGUMENTS.");
+        console.log('Testing COMMAND with ARGUMENTS.');
 
-        console.log("FFmpeg process started with arguments");
+        console.log('FFmpeg process started with arguments');
 
-        executeWithArguments(["-v", "debug", "-version"]);
+        executeWithArguments(['-v', 'debug', '-version']);
     };
 
     run = () => {
@@ -152,9 +149,9 @@ class CommandScreen extends React.Component {
         this.setFontconfigConfguration();
         this.setCustomFontDirectory();
 
-        console.log("Testing COMMAND.");
+        console.log('Testing COMMAND.');
 
-        console.log("FFmpeg process started with command.");
+        console.log('FFmpeg process started with command.');
         console.log(this.state.command);
 
         if ((this.state.command !== undefined) && (this.state.command.length > 0)) {
@@ -164,8 +161,8 @@ class CommandScreen extends React.Component {
 
 }
 
-class VideoScreen extends React.Component {
-    constructor(props) {
+class VideoScreen extends React.Component<any, any> {
+    constructor(props: any) {
         super(props);
 
         this.state = {
@@ -178,8 +175,7 @@ class VideoScreen extends React.Component {
         return (
             <View style={videoScreenStyles.screenStyle}>
                 <View style={videoScreenStyles.headerViewStyle}>
-                    <Text
-                        style={videoScreenStyles.headerTextStyle}>
+                    <Text style={videoScreenStyles.headerTextStyle}>
                         ReactNativeFFmpegTest
                     </Text>
                 </View>
@@ -188,16 +184,14 @@ class VideoScreen extends React.Component {
                         style={videoScreenStyles.videoCodecTextInputStyle}
                         autoCapitalize='none'
                         autoCorrect={false}
-                        placeholder="video codec"
-                        underlineColorAndroid="transparent"
+                        placeholder='video codec'
+                        underlineColorAndroid='transparent'
                         onChangeText={(videoCodec) => this.setState({videoCodec})}
                         value={this.state.videoCodec}
                     />
                 </View>
                 <View style={videoScreenStyles.createViewStyle}>
-                    <TouchableOpacity
-                        style={videoScreenStyles.createButtonStyle}
-                        onPress={this.createVideo}>
+                    <TouchableOpacity style={videoScreenStyles.createButtonStyle} onPress={this.createVideo}>
                         <Text style={videoScreenStyles.buttonTextStyle}>CREATE</Text>
                     </TouchableOpacity>
                 </View>
@@ -214,9 +208,8 @@ class VideoScreen extends React.Component {
         this.setState({encodeOutput: this.state.encodeOutput + logData.log});
     };
 
-    statisticsCallback = (statisticsData) => {
-        console.log('Statistics; frame: ' + statisticsData.videoFrameNumber.toFixed(1) + ', fps: ' + statisticsData.videoFps.toFixed(1) + ', quality: ' + statisticsData.videoQuality.toFixed(1) +
-            ', size: ' + statisticsData.size + ', time: ' + statisticsData.time);
+    statisticsCallback = (statisticsData: Statistics) => {
+        console.log(`Statistics; frame: ${statisticsData.videoFrameNumber.toFixed(1)}, fps: ${statisticsData.videoFps.toFixed(1)}, quality: ${statisticsData.videoQuality.toFixed(1)}, size: ${statisticsData.size}, time: ${statisticsData.time}`);
     };
 
     getLastReceivedStatistics = () => {
@@ -263,7 +256,7 @@ class VideoScreen extends React.Component {
         RNFFmpeg.enableLogCallback(this.logCallback);
         RNFFmpeg.enableStatisticsCallback(this.statisticsCallback);
 
-        console.log("Testing VIDEO.");
+        console.log('Testing VIDEO.');
 
         VideoUtil.resourcePath('colosseum.jpg').then((image1) => {
             console.log('Saved resource colosseum.jpg to ' + image1);
@@ -274,10 +267,10 @@ class VideoScreen extends React.Component {
                 VideoUtil.resourcePath('tajmahal.jpg').then((image3) => {
                     console.log('Saved resource tajmahal.jpg to ' + image3);
 
-                    var videoPath = RNFS.CachesDirectoryPath + '/video.mp4';
+                    const videoPath = RNFS.CachesDirectoryPath + '/video.mp4';
 
-                    console.log("FFmpeg process started with arguments");
-                    let command = VideoUtil.generateEncodeVideoScript(image1, image2, image3, videoPath, this.state.videoCodec, '');
+                    console.log('FFmpeg process started with arguments');
+                    const command = VideoUtil.generateEncodeVideoScript(image1, image2, image3, videoPath, this.state.videoCodec, '');
                     console.log(command);
 
                     execute(command).then(rc => {
@@ -295,7 +288,7 @@ class VideoScreen extends React.Component {
         }).catch((err) => {
             console.log('Failed to save resource: colosseum.jpg');
             console.log(err.message, err.code);
-        });
+        })
     };
 
 }
@@ -323,7 +316,7 @@ const TabNavigator = createBottomTabNavigator(
 
 const AppNavigator = createAppContainer(TabNavigator);
 
-export default class Main extends React.Component {
+export default class Main extends React.Component<any, any> {
     render() {
         return (
             <AppNavigator
@@ -348,7 +341,7 @@ const commandScreenStyles = StyleSheet.create({
         backgroundColor: '#F46842'
     },
     headerTextStyle: {
-        alignSelf: "center",
+        alignSelf: 'center',
         height: 32,
         fontSize: 18,
         fontWeight: 'bold',
@@ -371,7 +364,7 @@ const commandScreenStyles = StyleSheet.create({
         borderWidth: 1
     },
     runViewStyle: {
-        alignSelf: "center",
+        alignSelf: 'center',
         paddingBottom: 20
     },
     runButtonStyle: {
@@ -382,7 +375,7 @@ const commandScreenStyles = StyleSheet.create({
         borderRadius: 5
     },
     buttonTextStyle: {
-        textAlign: "center",
+        textAlign: 'center',
         fontSize: 14,
         fontWeight: 'bold',
         color: '#fff'
@@ -417,7 +410,7 @@ const videoScreenStyles = StyleSheet.create({
         backgroundColor: '#F46842'
     },
     headerTextStyle: {
-        alignSelf: "center",
+        alignSelf: 'center',
         height: 32,
         fontSize: 18,
         fontWeight: 'bold',
@@ -430,7 +423,7 @@ const videoScreenStyles = StyleSheet.create({
         paddingTop: 40,
         paddingBottom: 40,
         width: 100,
-        alignSelf: "center"
+        alignSelf: 'center'
     },
     videoCodecTextInputStyle: {
         height: 36,
@@ -441,7 +434,7 @@ const videoScreenStyles = StyleSheet.create({
         textAlign: 'center'
     },
     createViewStyle: {
-        alignSelf: "center",
+        alignSelf: 'center',
         paddingBottom: 20
     },
     createButtonStyle: {
@@ -452,7 +445,7 @@ const videoScreenStyles = StyleSheet.create({
         borderRadius: 5
     },
     buttonTextStyle: {
-        textAlign: "center",
+        textAlign: 'center',
         fontSize: 14,
         fontWeight: 'bold',
         color: '#fff'

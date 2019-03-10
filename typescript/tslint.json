@@ -4,7 +4,7 @@
   ],
   "rules": {
     "ordered-imports": [
-      true
+      false
     ],
     "quotemark": [
       true,
@@ -13,8 +13,7 @@
       "avoid-escape"
     ],
     "semicolon": [
-      true,
-      "never"
+      false
     ],
     "member-access": [
       false
@@ -23,11 +22,7 @@
       false
     ],
     "trailing-comma": [
-      true,
-      {
-        "singleline": "never",
-        "multiline": "always"
-      }
+      false
     ],
     "no-empty": false,
     "no-submodule-imports": false,
@@ -38,13 +33,9 @@
       "allow-undefined-check"
     ],
     "ter-indent": [
-      true,
-      2,
-      {
-        "SwitchCase": 1
-      }
+      false
     ],
-    "no-duplicate-imports": false,
+    "no-duplicate-imports": true,
     "jsx-alignment": true,
     "jsx-no-bind": true,
     "jsx-no-lambda": true,
