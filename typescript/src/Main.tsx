@@ -44,7 +44,7 @@ class CommandScreen extends React.Component<any, any> {
                         autoCorrect={false}
                         placeholder='Enter command'
                         underlineColorAndroid='transparent'
-                        onChangeText={(command) => this.setState({command})}
+                        onChangeText={this.updateCommand}
                         value={this.state.command}
                     />
                 </View>
@@ -62,8 +62,12 @@ class CommandScreen extends React.Component<any, any> {
         );
     }
 
+    private updateCommand = (command) => {
+        return this.setState({command});
+    };
+
     logCallback = (logData: LogMessage) => {
-        this.setState({commandOutput: this.state.commandOutput + logData.text});
+        this.setState({commandOutput: this.state.commandOutput + logData.log});
     };
 
     printExternalLibraries() {
@@ -186,7 +190,7 @@ class VideoScreen extends React.Component<any, any> {
                         autoCorrect={false}
                         placeholder='video codec'
                         underlineColorAndroid='transparent'
-                        onChangeText={(videoCodec) => this.setState({videoCodec})}
+                        onChangeText={this.updateVideoCodec}
                         value={this.state.videoCodec}
                     />
                 </View>
@@ -203,6 +207,10 @@ class VideoScreen extends React.Component<any, any> {
             </View>
         );
     }
+
+    private updateVideoCodec = (videoCodec) => {
+        return this.setState({videoCodec});
+    };
 
     logCallback = (logData) => {
         this.setState({encodeOutput: this.state.encodeOutput + logData.log});
@@ -227,25 +235,25 @@ class VideoScreen extends React.Component<any, any> {
             console.log('Start time: ' + info.startTime);
             console.log('Bitrate: ' + info.bitrate);
             if (info.streams) {
-                for (var i = 0; i < info.streams.length; i++) {
-                    console.log('Stream id: ' + info.streams[i].index);
-                    console.log('Stream type: ' + info.streams[i].type);
-                    console.log('Stream codec: ' + info.streams[i].codec);
-                    console.log('Stream full codec: ' + info.streams[i].fullCodec);
-                    console.log('Stream format: ' + info.streams[i].format);
-                    console.log('Stream full format: ' + info.streams[i].fullFormat);
-                    console.log('Stream width: ' + info.streams[i].width);
-                    console.log('Stream height: ' + info.streams[i].height);
-                    console.log('Stream bitrate: ' + info.streams[i].bitrate);
-                    console.log('Stream sample rate: ' + info.streams[i].sampleRate);
-                    console.log('Stream sample format: ' + info.streams[i].sampleFormat);
-                    console.log('Stream channel layout: ' + info.streams[i].channelLayout);
-                    console.log('Stream sar: ' + info.streams[i].sampleAspectRatio);
-                    console.log('Stream dar: ' + info.streams[i].displayAspectRatio);
-                    console.log('Stream average frame rate: ' + info.streams[i].averageFrameRate);
-                    console.log('Stream real frame rate: ' + info.streams[i].realFrameRate);
-                    console.log('Stream time base: ' + info.streams[i].timeBase);
-                    console.log('Stream codec time base: ' + info.streams[i].codecTimeBase);
+                for (const stream of info.streams) {
+                    console.log('Stream id: ' + stream.index);
+                    console.log('Stream type: ' + stream.type);
+                    console.log('Stream codec: ' + stream.codec);
+                    console.log('Stream full codec: ' + stream.fullCodec);
+                    console.log('Stream format: ' + stream.format);
+                    console.log('Stream full format: ' + stream.fullFormat);
+                    console.log('Stream width: ' + stream.width);
+                    console.log('Stream height: ' + stream.height);
+                    console.log('Stream bitrate: ' + stream.bitrate);
+                    console.log('Stream sample rate: ' + stream.sampleRate);
+                    console.log('Stream sample format: ' + stream.sampleFormat);
+                    console.log('Stream channel layout: ' + stream.channelLayout);
+                    console.log('Stream sar: ' + stream.sampleAspectRatio);
+                    console.log('Stream dar: ' + stream.displayAspectRatio);
+                    console.log('Stream average frame rate: ' + stream.averageFrameRate);
+                    console.log('Stream real frame rate: ' + stream.realFrameRate);
+                    console.log('Stream time base: ' + stream.timeBase);
+                    console.log('Stream codec time base: ' + stream.codecTimeBase);
                 }
             }
             console.log('\n');
@@ -317,6 +325,8 @@ const TabNavigator = createBottomTabNavigator(
 const AppNavigator = createAppContainer(TabNavigator);
 
 export default class Main extends React.Component<any, any> {
+    navigator;
+
     render() {
         return (
             <AppNavigator

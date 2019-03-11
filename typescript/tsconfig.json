@@ -1,35 +1,7 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": false,
-    "allowUnreachableCode": false,
-    "allowUnusedLabels": false,
-    "diagnostics": true,
-    "forceConsistentCasingInFileNames": false,
-    "importHelpers": true,
-    "noEmitOnError": true,
-    "noFallthroughCasesInSwitch": true,
-    "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "pretty": true,
-    "strict": true,
-    "outDir": "./lib/dist",
-    "allowJs": false,
-    "target": "esnext",
+    "target": "es6",
     "module": "commonjs",
-    "jsx": "react-native",
-    "declaration": true,
-    "skipLibCheck": true,
-    "types": [
-      "jest",
-      "lodash",
-      "react",
-      "react-native",
-      "react-test-renderer"
-    ]
-  },
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+    "jsx": "react-native"
+  }
 }
