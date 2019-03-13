@@ -1,57 +1,57 @@
 PODS:
   - boost-for-react-native (1.63.0)
-  - DoubleConversion (1.1.5)
+  - DoubleConversion (1.1.6)
   - Folly (2016.10.31.00):
     - boost-for-react-native
     - DoubleConversion
     - glog
-  - glog (0.3.4)
+  - glog (0.3.5)
   - mobile-ffmpeg-https (4.2.LTS)
-  - React (0.56.1):
-    - React/Core (= 0.56.1)
+  - React (0.57.8):
+    - React/Core (= 0.57.8)
   - react-native-ffmpeg (0.3.1):
     - mobile-ffmpeg-https (= 4.2.LTS)
     - React
-  - React/Core (0.56.1):
-    - yoga (= 0.56.1.React)
-  - React/CxxBridge (0.56.1):
+  - React/Core (0.57.8):
+    - yoga (= 0.57.8.React)
+  - React/CxxBridge (0.57.8):
     - Folly (= 2016.10.31.00)
     - React/Core
     - React/cxxreact
-  - React/cxxreact (0.56.1):
+  - React/cxxreact (0.57.8):
     - boost-for-react-native (= 1.63.0)
     - Folly (= 2016.10.31.00)
     - React/jschelpers
     - React/jsinspector
-  - React/DevSupport (0.56.1):
+  - React/DevSupport (0.57.8):
     - React/Core
     - React/RCTWebSocket
-  - React/fishhook (0.56.1)
-  - React/jschelpers (0.56.1):
+  - React/fishhook (0.57.8)
+  - React/jschelpers (0.57.8):
     - Folly (= 2016.10.31.00)
     - React/PrivateDatabase
-  - React/jsinspector (0.56.1)
-  - React/PrivateDatabase (0.56.1)
-  - React/RCTActionSheet (0.56.1):
+  - React/jsinspector (0.57.8)
+  - React/PrivateDatabase (0.57.8)
+  - React/RCTActionSheet (0.57.8):
     - React/Core
-  - React/RCTAnimation (0.56.1):
+  - React/RCTAnimation (0.57.8):
     - React/Core
-  - React/RCTBlob (0.56.1):
+  - React/RCTBlob (0.57.8):
     - React/Core
-  - React/RCTImage (0.56.1):
+  - React/RCTImage (0.57.8):
     - React/Core
     - React/RCTNetwork
-  - React/RCTNetwork (0.56.1):
+  - React/RCTNetwork (0.57.8):
     - React/Core
-  - React/RCTText (0.56.1):
+  - React/RCTText (0.57.8):
     - React/Core
-  - React/RCTWebSocket (0.56.1):
+  - React/RCTWebSocket (0.57.8):
     - React/Core
     - React/fishhook
     - React/RCTBlob
-  - RNFS (2.12.1):
+  - RNFS (2.13.3):
     - React
-  - yoga (0.56.1.React)
+  - yoga (0.57.8.React)
 
 DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
@@ -95,15 +95,15 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  DoubleConversion: a9706f16e388b53ff12cca34473428ee29746a26
+  DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
   Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
-  glog: b3b0330915eccea41c5cc9731a77cf564a9be5ea
+  glog: e8acf0ebbf99759d3ff18c86c292a5898282dcde
   mobile-ffmpeg-https: e08f5a83df33837c2e2d36cbe01e4495977de26f
-  React: 5762f784e03a9bad2567eead64c74de9335029e3
+  React: adbac0757ce35e92fbd447ab98c810209d27d9b0
   react-native-ffmpeg: c68d6d3288799e0b17c387067fbc3112390b5e51
-  RNFS: 0f4d630b538e93e0e9e3519ff0b7b7b48760d8ed
-  yoga: b9ed4d1df8b304449cc4d7f72c268eeaac2bbf85
+  RNFS: c9bbde46b0d59619f8e7b735991c60e0f73d22c1
+  yoga: 74cdf036c30820443b25ade59916236b1e95ee93
 
 PODFILE CHECKSUM: 42e8fdb164c8ca130425597ed432a1535bb0f226
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.7.0.beta.2

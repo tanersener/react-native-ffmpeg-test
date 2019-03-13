@@ -1,7 +1,7 @@
 import React from 'react';
 import {Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {createBottomTabNavigator} from 'react-navigation';
-import {RNFFmpeg} from 'react-native-ffmpeg';
+import {LogLevel, RNFFmpeg} from 'react-native-ffmpeg';
 import RNFS from 'react-native-fs';
 import {VideoUtil} from './VideoUtil';
 
@@ -69,6 +69,12 @@ class CommandScreen extends React.Component {
         this.setState({commandOutput: this.state.commandOutput + logData.log});
     };
 
+    setLogLevel() {
+        console.log("Setting log level to AV_LOG_DEBUG.");
+
+        RNFFmpeg.setLogLevel(LogLevel.AV_LOG_DEBUG);
+    }
+
     printExternalLibraries() {
         console.log("Printing external libraries.");
 
@@ -106,6 +112,8 @@ class CommandScreen extends React.Component {
     }
 
     runWithDelimiter = () => {
+        this.setLogLevel();
+
         this.printExternalLibraries();
 
         this.printLastCommandResult();
