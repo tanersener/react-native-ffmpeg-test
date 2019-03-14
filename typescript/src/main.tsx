@@ -1,9 +1,9 @@
 import * as React from 'react'
 import {Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native'
 import {createAppContainer, createBottomTabNavigator} from 'react-navigation'
-import { LogLevel, LogMessage, RNFFmpeg, Statistics} from 'react-native-ffmpeg'
+import {LogLevel, LogMessage, RNFFmpeg, Statistics} from 'react-native-ffmpeg'
 import * as RNFS from 'react-native-fs'
-import {VideoUtil} from './VideoUtil'
+import {VideoUtil} from './videoutil'
 
 async function execute(command: string) {
     await RNFFmpeg.execute(command, ' ').then(result => console.log('FFmpeg process exited with rc ' + result.rc));
@@ -19,7 +19,15 @@ async function executeWithArguments(commandArguments: string[]) {
     })
 }
 
-class CommandScreen extends React.Component<any, any> {
+export interface Props {
+}
+
+export interface State {
+    command: string;
+    commandOutput: string;
+}
+
+class CommandScreen extends React.Component<Props, State> {
     constructor(props: any) {
         super(props);
 
@@ -62,7 +70,7 @@ class CommandScreen extends React.Component<any, any> {
         );
     }
 
-    private updateCommand = (command) => {
+    private updateCommand = (command: string) => {
         return this.setState({command});
     };
 
@@ -70,13 +78,13 @@ class CommandScreen extends React.Component<any, any> {
         this.setState({commandOutput: this.state.commandOutput + logData.log});
     };
 
-    setLogLevel() {
+    static setLogLevel() {
         console.log('Setting log level to AV_LOG_DEBUG.');
 
         RNFFmpeg.setLogLevel(LogLevel.AV_LOG_DEBUG);
     }
 
-    printExternalLibraries() {
+    static printExternalLibraries() {
         console.log('Printing external libraries.');
 
         RNFFmpeg.getPackageName().then(result => {
@@ -88,7 +96,7 @@ class CommandScreen extends React.Component<any, any> {
         });
     }
 
-    printLastCommandResult() {
+    static printLastCommandResult() {
         console.log('Printing last command result.');
 
         RNFFmpeg.getLastReturnCode().then(result => {
@@ -100,7 +108,7 @@ class CommandScreen extends React.Component<any, any> {
         });
     }
 
-    setCustomFontDirectory() {
+    static setCustomFontDirectory() {
         console.log('Registering cache directory as font directory.');
 
         RNFFmpeg.setFontDirectory(RNFS.CachesDirectoryPath, {
@@ -109,18 +117,18 @@ class CommandScreen extends React.Component<any, any> {
         });
     }
 
-    setFontconfigConfguration() {
+    static setFontconfigConfguration() {
         console.log('Registering cache directory as fontconfig directory.');
 
         RNFFmpeg.setFontconfigConfigurationPath(RNFS.CachesDirectoryPath);
     }
 
     runWithDelimiter = () => {
-        this.setLogLevel();
+        CommandScreen.setLogLevel();
 
-        this.printExternalLibraries();
+        CommandScreen.printExternalLibraries();
 
-        this.printLastCommandResult();
+        CommandScreen.printLastCommandResult();
 
         RNFFmpeg.enableLogCallback(this.logCallback);
 
@@ -158,8 +166,8 @@ class CommandScreen extends React.Component<any, any> {
         // CLEAR COMMAND OUTPUT FIRST
         this.setState({commandOutput: ''});
 
-        this.setFontconfigConfguration();
-        this.setCustomFontDirectory();
+        CommandScreen.setFontconfigConfguration();
+        CommandScreen.setCustomFontDirectory();
 
         console.log('Testing COMMAND.');
 
@@ -216,11 +224,11 @@ class VideoScreen extends React.Component<any, any> {
         );
     }
 
-    private updateVideoCodec = (videoCodec) => {
+    private updateVideoCodec = (videoCodec: string) => {
         return this.setState({videoCodec});
     };
 
-    logCallback = (logData) => {
+    logCallback = (logData: LogMessage) => {
         this.setState({encodeOutput: this.state.encodeOutput + logData.log});
     };
 
@@ -228,11 +236,11 @@ class VideoScreen extends React.Component<any, any> {
         console.log(`Statistics; frame: ${statisticsData.videoFrameNumber.toFixed(1)}, fps: ${statisticsData.videoFps.toFixed(1)}, quality: ${statisticsData.videoQuality.toFixed(1)}, size: ${statisticsData.size}, time: ${statisticsData.time}`);
     };
 
-    getLastReceivedStatistics = () => {
+    static getLastReceivedStatistics = () => {
         RNFFmpeg.getLastReceivedStatistics().then(stats => console.log('Stats: ' + JSON.stringify(stats)));
     };
 
-    getMediaInformation = () => {
+    static getMediaInformation = () => {
         RNFFmpeg.getMediaInformation(RNFS.CachesDirectoryPath + '/video.mp4').then(info => {
             console.log('\n');
             console.log('Result: ' + JSON.stringify(info));
@@ -289,8 +297,8 @@ class VideoScreen extends React.Component<any, any> {
                     const command = VideoUtil.generateEncodeVideoScript(image1, image2, image3, videoPath, this.state.videoCodec, '');
                     console.log(command);
 
-                    execute(command).then(rc => {
-                        this.getMediaInformation();
+                    execute(command).then(() => {
+                        VideoScreen.getMediaInformation();
                     });
 
                 }).catch((err) => {
@@ -333,7 +341,7 @@ const TabNavigator = createBottomTabNavigator(
 const AppNavigator = createAppContainer(TabNavigator);
 
 export default class Main extends React.Component<any, any> {
-    navigator;
+    navigator: any;
 
     render() {
         return (
