@@ -35,7 +35,7 @@
     "ter-indent": [
       false
     ],
-    "no-duplicate-imports": true,
+    "no-duplicate-imports": false,
     "jsx-alignment": true,
     "jsx-no-bind": true,
     "jsx-no-lambda": true,
