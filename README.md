@@ -1,7 +1,11 @@
 # react-native-ffmpeg-test
 test applications for [react-native-ffmpeg](https://github.com/tanersener/react-native-ffmpeg)
 
-Application #1 supports command execution and video encoding operations, application #2 supports only command execution. The main difference between them is IOS dependency management mechanism applied.
+`default` application supports command execution and video encoding operations.
+
+`ios-frameworks` application supports only command execution.
+
+`typescript` application supports command execution and video encoding operations, uses `typescript` definitions. 
 
 **1.** `default` -> Generic `react-native-ffmpeg` integration
   - Using `cocoapods` to download IOS dependencies
@@ -90,3 +94,5 @@ target "ReactNativeFFmpegIOSFrameworkTest" do
 end
 
 ```
+
+**3.** `typescript` -> Generic `react-native-ffmpeg` integration, same as `default`.
