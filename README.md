@@ -19,7 +19,6 @@ target "ReactNativeFFmpegTest" do
 
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
     'Core',
-    'jschelpers',
     'cxxreact',
     'CxxBridge', # Include this for RN >= 0.47
     'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
@@ -69,7 +68,6 @@ target "ReactNativeFFmpegIOSFrameworkTest" do
 
   pod 'React', :path => '../node_modules/react-native', :subspecs => [
     'Core',
-    'jschelpers',
     'cxxreact',
     'CxxBridge', # Include this for RN >= 0.47
     'DevSupport', # Include this to enable In-App Devmenu if RN >= 0.43
