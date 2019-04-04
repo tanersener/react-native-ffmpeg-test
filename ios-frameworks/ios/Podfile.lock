@@ -1,66 +1,73 @@
 PODS:
   - boost-for-react-native (1.63.0)
-  - DoubleConversion (1.1.5)
-  - Folly (2016.10.31.00):
+  - DoubleConversion (1.1.6)
+  - Folly (2018.10.22.00):
     - boost-for-react-native
     - DoubleConversion
     - glog
-  - glog (0.3.4)
-  - mobile-ffmpeg-https (4.2.LTS)
-  - React (0.56.1):
-    - React/Core (= 0.56.1)
-  - react-native-ffmpeg (0.3.1):
-    - mobile-ffmpeg-https (= 4.2.LTS)
+  - glog (0.3.5)
+  - mobile-ffmpeg-min (4.2.LTS)
+  - React (0.59.3):
+    - React/Core (= 0.59.3)
+  - react-native-ffmpeg/min-lts (0.3.2):
+    - mobile-ffmpeg-min (= 4.2.LTS)
     - React
-  - React/Core (0.56.1):
-    - yoga (= 0.56.1.React)
-  - React/CxxBridge (0.56.1):
-    - Folly (= 2016.10.31.00)
+  - React/Core (0.59.3):
+    - yoga (= 0.59.3.React)
+  - React/CxxBridge (0.59.3):
+    - Folly (= 2018.10.22.00)
     - React/Core
     - React/cxxreact
-  - React/cxxreact (0.56.1):
+    - React/jsiexecutor
+  - React/cxxreact (0.59.3):
     - boost-for-react-native (= 1.63.0)
-    - Folly (= 2016.10.31.00)
-    - React/jschelpers
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
     - React/jsinspector
-  - React/DevSupport (0.56.1):
+  - React/DevSupport (0.59.3):
     - React/Core
     - React/RCTWebSocket
-  - React/fishhook (0.56.1)
-  - React/jschelpers (0.56.1):
-    - Folly (= 2016.10.31.00)
-    - React/PrivateDatabase
-  - React/jsinspector (0.56.1)
-  - React/PrivateDatabase (0.56.1)
-  - React/RCTActionSheet (0.56.1):
+  - React/fishhook (0.59.3)
+  - React/jsi (0.59.3):
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+  - React/jsiexecutor (0.59.3):
+    - DoubleConversion
+    - Folly (= 2018.10.22.00)
+    - glog
+    - React/cxxreact
+    - React/jsi
+  - React/jsinspector (0.59.3)
+  - React/RCTActionSheet (0.59.3):
     - React/Core
-  - React/RCTAnimation (0.56.1):
+  - React/RCTAnimation (0.59.3):
     - React/Core
-  - React/RCTBlob (0.56.1):
+  - React/RCTBlob (0.59.3):
     - React/Core
-  - React/RCTImage (0.56.1):
+  - React/RCTImage (0.59.3):
     - React/Core
     - React/RCTNetwork
-  - React/RCTNetwork (0.56.1):
+  - React/RCTNetwork (0.59.3):
     - React/Core
-  - React/RCTText (0.56.1):
+  - React/RCTText (0.59.3):
     - React/Core
-  - React/RCTWebSocket (0.56.1):
+  - React/RCTWebSocket (0.59.3):
     - React/Core
     - React/fishhook
     - React/RCTBlob
-  - yoga (0.56.1.React)
+  - yoga (0.59.3.React)
 
 DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
-  - react-native-ffmpeg (from `../node_modules/react-native-ffmpeg/ios/react-native-ffmpeg.podspec`)
+  - react-native-ffmpeg/min-lts (from `../node_modules/react-native-ffmpeg/ios/react-native-ffmpeg.podspec`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
   - React/cxxreact (from `../node_modules/react-native`)
   - React/DevSupport (from `../node_modules/react-native`)
-  - React/jschelpers (from `../node_modules/react-native`)
   - React/RCTActionSheet (from `../node_modules/react-native`)
   - React/RCTAnimation (from `../node_modules/react-native`)
   - React/RCTImage (from `../node_modules/react-native`)
@@ -72,7 +79,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - boost-for-react-native
-    - mobile-ffmpeg-https
+    - mobile-ffmpeg-min
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -90,14 +97,14 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  DoubleConversion: a9706f16e388b53ff12cca34473428ee29746a26
-  Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
-  glog: b3b0330915eccea41c5cc9731a77cf564a9be5ea
-  mobile-ffmpeg-https: e08f5a83df33837c2e2d36cbe01e4495977de26f
-  React: 5762f784e03a9bad2567eead64c74de9335029e3
-  react-native-ffmpeg: c68d6d3288799e0b17c387067fbc3112390b5e51
-  yoga: b9ed4d1df8b304449cc4d7f72c268eeaac2bbf85
+  DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
+  Folly: de497beb10f102453a1afa9edbf8cf8a251890de
+  glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
+  mobile-ffmpeg-min: d48a35d0b6e057de36684af3f1c8e182e077e558
+  React: b52fdb80565505b7e4592b313a38868f5df51641
+  react-native-ffmpeg: d93fc8ba4f15f6fab7d1669fce7e6b681d1f38f2
+  yoga: 1a492113f66a35e9e583bb0434f4b8cc668dd839
 
-PODFILE CHECKSUM: fdfb55946e0464f3931e2cbaacb941c282e260d9
+PODFILE CHECKSUM: 741bf78c16ef8fad5e959491356201adfe9a3860
 
-COCOAPODS: 1.6.0.beta.2
+COCOAPODS: 1.7.0.beta.3

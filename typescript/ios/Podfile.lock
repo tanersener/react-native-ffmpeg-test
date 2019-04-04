@@ -7,59 +7,65 @@ PODS:
     - glog
   - glog (0.3.5)
   - mobile-ffmpeg-https (4.2.LTS)
-  - React (0.58.6):
-    - React/Core (= 0.58.6)
-  - react-native-ffmpeg (0.3.1):
+  - React (0.59.3):
+    - React/Core (= 0.59.3)
+  - react-native-ffmpeg/https-lts (0.3.2):
     - mobile-ffmpeg-https (= 4.2.LTS)
     - React
-  - React/Core (0.58.6):
-    - yoga (= 0.58.6.React)
-  - React/CxxBridge (0.58.6):
+  - React/Core (0.59.3):
+    - yoga (= 0.59.3.React)
+  - React/CxxBridge (0.59.3):
     - Folly (= 2018.10.22.00)
     - React/Core
     - React/cxxreact
     - React/jsiexecutor
-  - React/cxxreact (0.58.6):
+  - React/cxxreact (0.59.3):
     - boost-for-react-native (= 1.63.0)
+    - DoubleConversion
     - Folly (= 2018.10.22.00)
+    - glog
     - React/jsinspector
-  - React/DevSupport (0.58.6):
+  - React/DevSupport (0.59.3):
     - React/Core
     - React/RCTWebSocket
-  - React/fishhook (0.58.6)
-  - React/jsi (0.58.6):
+  - React/fishhook (0.59.3)
+  - React/jsi (0.59.3):
+    - DoubleConversion
     - Folly (= 2018.10.22.00)
-  - React/jsiexecutor (0.58.6):
+    - glog
+  - React/jsiexecutor (0.59.3):
+    - DoubleConversion
     - Folly (= 2018.10.22.00)
+    - glog
     - React/cxxreact
     - React/jsi
-  - React/jsinspector (0.58.6)
-  - React/RCTActionSheet (0.58.6):
+  - React/jsinspector (0.59.3)
+  - React/RCTActionSheet (0.59.3):
     - React/Core
-  - React/RCTAnimation (0.58.6):
+  - React/RCTAnimation (0.59.3):
     - React/Core
-  - React/RCTBlob (0.58.6):
+  - React/RCTBlob (0.59.3):
     - React/Core
-  - React/RCTImage (0.58.6):
+  - React/RCTImage (0.59.3):
     - React/Core
     - React/RCTNetwork
-  - React/RCTNetwork (0.58.6):
+  - React/RCTNetwork (0.59.3):
     - React/Core
-  - React/RCTText (0.58.6):
+  - React/RCTText (0.59.3):
     - React/Core
-  - React/RCTWebSocket (0.58.6):
+  - React/RCTWebSocket (0.59.3):
     - React/Core
     - React/fishhook
     - React/RCTBlob
   - RNFS (2.13.3):
     - React
-  - yoga (0.58.6.React)
+  - yoga (0.59.3.React)
 
 DEPENDENCIES:
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - Folly (from `../node_modules/react-native/third-party-podspecs/Folly.podspec`)
   - glog (from `../node_modules/react-native/third-party-podspecs/glog.podspec`)
-  - react-native-ffmpeg (from `../node_modules/react-native-ffmpeg/ios/react-native-ffmpeg.podspec`)
+  - react-native-ffmpeg/https-lts (from `../node_modules/react-native-ffmpeg/ios/react-native-ffmpeg.podspec`)
   - React/Core (from `../node_modules/react-native`)
   - React/CxxBridge (from `../node_modules/react-native`)
   - React/cxxreact (from `../node_modules/react-native`)
@@ -100,11 +106,11 @@ SPEC CHECKSUMS:
   Folly: de497beb10f102453a1afa9edbf8cf8a251890de
   glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
   mobile-ffmpeg-https: e08f5a83df33837c2e2d36cbe01e4495977de26f
-  React: 130b87b2d5e2baac646954282cab87be986d98fc
-  react-native-ffmpeg: c68d6d3288799e0b17c387067fbc3112390b5e51
+  React: b52fdb80565505b7e4592b313a38868f5df51641
+  react-native-ffmpeg: d93fc8ba4f15f6fab7d1669fce7e6b681d1f38f2
   RNFS: c9bbde46b0d59619f8e7b735991c60e0f73d22c1
-  yoga: 32d7ef1081951e9a35a4c72a7be797598b138a48
+  yoga: 1a492113f66a35e9e583bb0434f4b8cc668dd839
 
-PODFILE CHECKSUM: daf43f47d5741cf5ada7225c46e7a8357f541a0d
+PODFILE CHECKSUM: 9f8717cb577ab9be62ab691bd3b1c503cf81b484
 
-COCOAPODS: 1.7.0.beta.2
+COCOAPODS: 1.7.0.beta.3

@@ -10,10 +10,11 @@
     "android": "node node_modules/react-native/local-cli/cli.js run-android"
   },
   "dependencies": {
-    "react": "16.8.4",
-    "react-native": "0.59.1",
-    "react-native-ffmpeg": "file:../../react-native-ffmpeg",
+    "react": "16.8.6",
+    "react-native": "^0.59.3",
+    "react-native-ffmpeg": "^0.3.2",
     "react-native-fs": "^2.13.3",
+    "react-native-gesture-handler": "^1.1.0",
     "react-navigation": "^3.3.2"
   },
   "devDependencies": {
@@ -25,8 +26,8 @@
     "@types/react-test-renderer": "^16.8.1",
     "babel-core": "^6.26.3",
     "babel-jest": "23.6.0",
-    "jest": "^23.6.0",
     "babel-preset-react-native": "^5.0.2",
+    "jest": "^23.6.0",
     "react-native-typescript-transformer": "^1.2.12",
     "react-test-renderer": "^16.8.1",
     "ts-jest": "^23.10.5",

@@ -23,7 +23,7 @@ target "ReactNativeFFmpegTest" do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
 
-  pod 'react-native-ffmpeg', :podspec => '../node_modules/react-native-ffmpeg/ios/react-native-ffmpeg.podspec'
+  pod 'react-native-ffmpeg/https-lts', :podspec => '../node_modules/react-native-ffmpeg/ios/react-native-ffmpeg.podspec'
 
   pod 'RNFS', :path => '../node_modules/react-native-fs'
 
