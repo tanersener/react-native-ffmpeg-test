@@ -1,15 +1,15 @@
 {
-  "name": "ReactNativeFFmpegIOSFrameworkTest",
-  "version": "0.0.4",
+  "name": "react-native-ffmpeg-test",
+  "version": "0.0.5",
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "postinstall": "sed -i '' 's\/#import <RCTAnimation\\/RCTValueAnimatedNode.h>\/#import \"RCTValueAnimatedNode.h\"\/' ./node_modules/react-native/Libraries/NativeAnimation/RCTNativeAnimatedNodesManager.h"
   },
   "dependencies": {
-    "react": "16.8.6",
-    "react-native": "^0.59",
+    "react": "^16.8.6",
+    "react-native": "^0.59.8",
     "react-native-ffmpeg": "^0.3.2",
-    "react-navigation": "^2.6.2"
+    "react-navigation": "^2.18.3"
   }
 }
