@@ -9,7 +9,7 @@
   "dependencies": {
     "react": "^16.8.6",
     "react-native": "^0.59.8",
-    "react-native-ffmpeg": "^0.3.2",
+    "react-native-ffmpeg": "^0.3.3",
     "react-navigation": "^2.18.3"
   }
 }
