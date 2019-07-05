@@ -258,6 +258,17 @@ class VideoScreen extends React.Component {
                     console.log('Stream real frame rate: ' + info.streams[i].realFrameRate);
                     console.log('Stream time base: ' + info.streams[i].timeBase);
                     console.log('Stream codec time base: ' + info.streams[i].codecTimeBase);
+
+                    if (info.streams[i].metadata) {
+                        console.log('Stream metadata encoder: ' + info.streams[i].metadata.encoder);
+                        console.log('Stream metadata rotate: ' + info.streams[i].metadata.rotate);
+                        console.log('Stream metadata creation time: ' + info.streams[i].metadata.creation_time);
+                        console.log('Stream metadata handler name: ' + info.streams[i].metadata.handler_name);
+                    }
+
+                    if (info.streams[i].sidedata) {
+                        console.log('Stream side data displaymatrix: ' + info.streams[i].sidedata.displaymatrix);
+                    }
                 }
             }
             console.log('\n');

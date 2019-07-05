@@ -9,7 +9,7 @@ PODS:
   - mobile-ffmpeg-min (4.2.2.LTS)
   - React (0.59.10):
     - React/Core (= 0.59.10)
-  - react-native-ffmpeg/min-lts (0.3.3):
+  - react-native-ffmpeg/min-lts (0.3.4):
     - mobile-ffmpeg-min (= 4.2.2.LTS)
     - React
   - React/Core (0.59.10):
@@ -102,7 +102,7 @@ SPEC CHECKSUMS:
   glog: aefd1eb5dda2ab95ba0938556f34b98e2da3a60d
   mobile-ffmpeg-min: 05ebe3998721155274ae50466b5223d3637a92ab
   React: 36d0768f9e93be2473b37e7fa64f92c1d5341eef
-  react-native-ffmpeg: 79ab94f4a24395dab0a9f2ae3e71dd06f8eec94a
+  react-native-ffmpeg: b8b4d50a30bc6f8b6893a92a06bb14b4a6e21212
   yoga: 684513b14b03201579ba3cee20218c9d1298b0cc
 
 PODFILE CHECKSUM: 741bf78c16ef8fad5e959491356201adfe9a3860
