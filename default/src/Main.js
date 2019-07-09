@@ -1,6 +1,6 @@
 import React from 'react';
 import {Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
-import {createBottomTabNavigator} from 'react-navigation';
+import {createAppContainer, createBottomTabNavigator} from 'react-navigation'
 import {LogLevel, RNFFmpeg} from 'react-native-ffmpeg';
 import RNFS from 'react-native-fs';
 import {VideoUtil} from './VideoUtil';
@@ -102,7 +102,10 @@ class CommandScreen extends React.Component {
     setCustomFontDirectory() {
         console.log("Registering cache directory as font directory.");
 
-        RNFFmpeg.setFontDirectory(RNFS.CachesDirectoryPath, {my_easy_font_name: "my complex font name", my_font_name_2: "my complex font name"});
+        RNFFmpeg.setFontDirectory(RNFS.CachesDirectoryPath, {
+            my_easy_font_name: "my complex font name",
+            my_font_name_2: "my complex font name"
+        });
     }
 
     setFontconfigConfguration() {
@@ -325,7 +328,7 @@ const TabNavigator = createBottomTabNavigator(
         tabBarOptions: {
             activeTintColor: 'dodgerblue',
             inactiveTintColor: 'gray',
-            showIcon: 'false',
+            showIcon: false,
             labelStyle: {
                 fontSize: 12,
                 fontWeight: 'bold',
@@ -337,9 +340,13 @@ const TabNavigator = createBottomTabNavigator(
     }
 );
 
+const AppNavigator = createAppContainer(TabNavigator);
+
 export default class Main extends React.Component {
     render() {
-        return <TabNavigator/>;
+        return (
+            <AppNavigator/>
+        );
     }
 }
 

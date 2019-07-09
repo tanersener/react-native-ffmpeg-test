@@ -1,40 +1,36 @@
 {
   "name": "react-native-ffmpeg-test",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "lint": "tslint -p \".\" -t stylish",
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "react-native start",
     "test": "jest",
-    "ios": "node node_modules/react-native/local-cli/cli.js run-ios",
-    "android": "node node_modules/react-native/local-cli/cli.js run-android"
+    "lint": "eslint ."
   },
   "dependencies": {
-    "react": "^16.8.6",
-    "react-native": "^0.59.8",
+    "react": "16.8.6",
+    "react-native": "0.60.3",
     "react-native-ffmpeg": "^0.3.4",
     "react-native-fs": "^2.13.3",
-    "react-native-gesture-handler": "^1.1.0",
-    "react-navigation": "^3.10.2"
+    "react-native-gesture-handler": "^1.3.0",
+    "react-navigation": "^3.11.1"
   },
   "devDependencies": {
-    "@types/jest": "^24.0.13",
-    "@types/react": "^16.8.17",
-    "@types/react-native": "^0.57.57",
-    "@types/react-native-ffmpeg": "file:../../react-native-ffmpeg",
-    "@types/react-navigation": "^3.0.7",
-    "@types/react-test-renderer": "^16.8.1",
-    "babel-core": "^6.26.3",
-    "babel-jest": "24.8.0",
-    "babel-preset-react-native": "^5.0.2",
+    "@babel/core": "^7.5.4",
+    "@babel/runtime": "^7.5.4",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "@types/jest": "^24.0.15",
+    "@types/react": "^16.8.23",
+    "@types/react-native": "^0.60.0",
+    "@types/react-test-renderer": "^16.8.2",
+    "babel-jest": "^24.8.0",
+    "eslint": "^6.0.1",
     "jest": "^24.8.0",
-    "react-native-typescript-transformer": "^1.2.12",
-    "react-test-renderer": "^16.8.6",
-    "ts-jest": "^24.0.2",
-    "tslint": "^5.16.0",
-    "tslint-eslint-rules": "^5.4.0",
-    "tslint-react": "^4.0.0",
-    "tslint-react-recommended": "^1.0.15",
-    "typescript": "^3.4.5"
+    "metro-react-native-babel-preset": "^0.55.0",
+    "react-test-renderer": "16.8.6",
+    "typescript": "^3.5.3"
+  },
+  "jest": {
+    "preset": "react-native"
   }
 }

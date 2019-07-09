@@ -1,6 +1,6 @@
 import React from 'react';
 import {Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
-import {createBottomTabNavigator} from 'react-navigation';
+import {createAppContainer, createBottomTabNavigator} from 'react-navigation'
 import {RNFFmpeg} from 'react-native-ffmpeg';
 
 async function execute(command) {
@@ -152,7 +152,7 @@ const TabNavigator = createBottomTabNavigator(
         tabBarOptions: {
             activeTintColor: 'dodgerblue',
             inactiveTintColor: 'gray',
-            showIcon: 'false',
+            showIcon: false,
             labelStyle: {
                 fontSize: 12,
                 fontWeight: 'bold',
@@ -164,9 +164,13 @@ const TabNavigator = createBottomTabNavigator(
     }
 );
 
+const AppNavigator = createAppContainer(TabNavigator);
+
 export default class Main extends React.Component {
     render() {
-        return <TabNavigator/>;
+        return (
+            <AppNavigator/>
+        );
     }
 }
 

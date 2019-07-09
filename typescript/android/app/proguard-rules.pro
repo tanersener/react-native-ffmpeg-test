@@ -8,10 +8,3 @@
 #   http://developer.android.com/guide/developing/tools/proguard.html
 
 # Add any project specific keep options here:
-
-# React Native FFmpeg
--keep class com.arthenica.mobileffmpeg.Config {
-    native <methods>;
-    void log(int, byte[]);
-    void statistics(int, float, float, long , int, double, double);
-}
