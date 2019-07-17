@@ -4,13 +4,10 @@ import {createAppContainer, createBottomTabNavigator} from 'react-navigation'
 import {LogLevel, LogMessage, RNFFmpeg, Statistics} from 'react-native-ffmpeg'
 import * as RNFS from 'react-native-fs'
 import {VideoUtil} from './videoutil'
+import {TestUtil} from './test'
 
 async function execute(command: string) {
-    await RNFFmpeg.execute(command, ' ').then(result => console.log('FFmpeg process exited with rc ' + result.rc));
-}
-
-async function executeWithDelimiter(command: string, delimiter: string) {
-    await RNFFmpeg.execute(command, delimiter).then(result => console.log('FFmpeg process exited with rc ' + result.rc));
+    await RNFFmpeg.execute(command).then(result => console.log('FFmpeg process exited with rc ' + result.rc));
 }
 
 async function executeWithArguments(commandArguments: string[]) {
@@ -123,29 +120,6 @@ class CommandScreen extends React.Component<Props, State> {
         RNFFmpeg.setFontconfigConfigurationPath(RNFS.CachesDirectoryPath);
     }
 
-    runWithDelimiter = () => {
-        CommandScreen.setLogLevel();
-
-        CommandScreen.printExternalLibraries();
-
-        CommandScreen.printLastCommandResult();
-
-        RNFFmpeg.enableLogCallback(this.logCallback);
-
-        // CLEAR COMMAND OUTPUT FIRST
-        this.setState({commandOutput: ''});
-
-        console.log('Testing COMMAND with DELIMITER.');
-
-        console.log('FFmpeg process started with command and delimiter.');
-        console.log(this.state.command);
-
-        if ((this.state.command !== undefined) && (this.state.command.length > 0)) {
-            executeWithDelimiter(this.state.command, '%');
-        }
-
-    };
-
     runWithArguments = () => {
         RNFFmpeg.enableLogCallback(this.logCallback);
 
@@ -168,6 +142,10 @@ class CommandScreen extends React.Component<Props, State> {
 
         CommandScreen.setFontconfigConfguration();
         CommandScreen.setCustomFontDirectory();
+
+        console.log('Testing parseArguments.');
+
+        TestUtil.testParseArguments();
 
         console.log('Testing COMMAND.');
 
