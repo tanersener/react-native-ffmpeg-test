@@ -11,7 +11,7 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		1939A33B9399AB69C0771604 /* libPods-ReactNativeFFmpegIOSFrameworkTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7BA5FDD5089A132E8EA21977 /* libPods-ReactNativeFFmpegIOSFrameworkTest.a */; };
+		3061FDF24982BE6251593B6F /* libPods-ReactNativeFFmpegIOSFrameworkTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AEDBD9DD4290C481577F64F /* libPods-ReactNativeFFmpegIOSFrameworkTest.a */; };
 		34690AB922D9E2FB004E140A /* colosseum.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34690AB622D9E2FB004E140A /* colosseum.jpg */; };
 		34690ABA22D9E2FB004E140A /* pyramid.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34690AB722D9E2FB004E140A /* pyramid.jpg */; };
 		34690ABB22D9E2FB004E140A /* tajmahal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 34690AB822D9E2FB004E140A /* tajmahal.jpg */; };
@@ -29,7 +29,7 @@
 		34690AB622D9E2FB004E140A /* colosseum.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = colosseum.jpg; sourceTree = "<group>"; };
 		34690AB722D9E2FB004E140A /* pyramid.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pyramid.jpg; sourceTree = "<group>"; };
 		34690AB822D9E2FB004E140A /* tajmahal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tajmahal.jpg; sourceTree = "<group>"; };
-		7BA5FDD5089A132E8EA21977 /* libPods-ReactNativeFFmpegIOSFrameworkTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeFFmpegIOSFrameworkTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AEDBD9DD4290C481577F64F /* libPods-ReactNativeFFmpegIOSFrameworkTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeFFmpegIOSFrameworkTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D09CC07543925BE7CF552CD /* Pods-ReactNativeFFmpegIOSFrameworkTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeFFmpegIOSFrameworkTest.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeFFmpegIOSFrameworkTest/Pods-ReactNativeFFmpegIOSFrameworkTest.debug.xcconfig"; sourceTree = "<group>"; };
 		7D20F7E7CAFA3C049629C73B /* Pods-ReactNativeFFmpegIOSFrameworkTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeFFmpegIOSFrameworkTest.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeFFmpegIOSFrameworkTest/Pods-ReactNativeFFmpegIOSFrameworkTest.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -41,7 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1939A33B9399AB69C0771604 /* libPods-ReactNativeFFmpegIOSFrameworkTest.a in Frameworks */,
+				3061FDF24982BE6251593B6F /* libPods-ReactNativeFFmpegIOSFrameworkTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,7 +76,7 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				7BA5FDD5089A132E8EA21977 /* libPods-ReactNativeFFmpegIOSFrameworkTest.a */,
+				7AEDBD9DD4290C481577F64F /* libPods-ReactNativeFFmpegIOSFrameworkTest.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -152,6 +152,11 @@
 			attributes = {
 				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = Facebook;
+				TargetAttributes = {
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 98GD5J4999;
+					};
+				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ReactNativeFFmpegIOSFrameworkTest" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -277,6 +282,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 98GD5J4999;
 				INFOPLIST_FILE = ReactNativeFFmpegIOSFrameworkTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -284,7 +290,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.arthenica.reactnativeffmpeg.ReactNativeFFmpegTest;
 				PRODUCT_NAME = ReactNativeFFmpegIOSFrameworkTest;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -296,6 +302,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 98GD5J4999;
 				INFOPLIST_FILE = ReactNativeFFmpegIOSFrameworkTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -303,7 +310,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.arthenica.reactnativeffmpeg.ReactNativeFFmpegTest;
 				PRODUCT_NAME = ReactNativeFFmpegIOSFrameworkTest;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
