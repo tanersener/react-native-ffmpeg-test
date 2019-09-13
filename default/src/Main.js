@@ -128,6 +128,8 @@ class CommandScreen extends React.Component {
 
         RNFFmpeg.enableLogCallback(this.logCallback);
 
+        this.setLogLevel();
+
         // CLEAR COMMAND OUTPUT FIRST
         this.setState({commandOutput: ''});
 
