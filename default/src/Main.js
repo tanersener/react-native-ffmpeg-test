@@ -67,9 +67,9 @@ class CommandScreen extends React.Component {
     };
 
     setLogLevel() {
-        console.log("Setting log level to AV_LOG_DEBUG.");
+        console.log("Setting log level to AV_LOG_INFO.");
 
-        RNFFmpeg.setLogLevel(LogLevel.AV_LOG_DEBUG);
+        RNFFmpeg.setLogLevel(LogLevel.AV_LOG_INFO);
     }
 
     printExternalLibraries() {
@@ -93,6 +93,14 @@ class CommandScreen extends React.Component {
 
         RNFFmpeg.getLastCommandOutput().then(result => {
             console.log("Last command output: " + result.lastCommandOutput);
+        });
+    }
+
+    registerNewFFmpegPipe() {
+        console.log("Creating new FFmpeg pipe.");
+
+        RNFFmpeg.registerNewFFmpegPipe().then(result => {
+            console.log("Pipe path is " + result.pipe);
         });
     }
 
@@ -135,6 +143,7 @@ class CommandScreen extends React.Component {
 
         this.setFontconfigConfguration();
         this.setCustomFontDirectory();
+        this.registerNewFFmpegPipe();
 
         console.log('Testing parseArguments.');
 

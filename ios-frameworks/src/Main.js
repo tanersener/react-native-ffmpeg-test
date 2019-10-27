@@ -88,6 +88,14 @@ class CommandScreen extends React.Component {
         });
     }
 
+    registerNewFFmpegPipe() {
+        console.log("Creating new FFmpeg pipe.");
+
+        RNFFmpeg.registerNewFFmpegPipe().then(result => {
+            console.log("Pipe path is " + result.pipe);
+        });
+    }
+
     runWithArguments = () => {
         RNFFmpeg.enableLogCallback(this.logCallback);
 
@@ -111,6 +119,7 @@ class CommandScreen extends React.Component {
         console.log('Testing parseArguments.');
 
         TestUtil.testParseArguments();
+        this.registerNewFFmpegPipe();
 
         console.log("Testing COMMAND.");
 

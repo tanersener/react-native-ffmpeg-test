@@ -76,9 +76,9 @@ class CommandScreen extends React.Component<Props, State> {
     };
 
     static setLogLevel() {
-        console.log('Setting log level to AV_LOG_DEBUG.');
+        console.log('Setting log level to AV_LOG_INFO.');
 
-        RNFFmpeg.setLogLevel(LogLevel.AV_LOG_DEBUG);
+        RNFFmpeg.setLogLevel(LogLevel.AV_LOG_INFO);
     }
 
     static printExternalLibraries() {
