@@ -134,6 +134,8 @@ class CommandScreen extends React.Component {
 
     run = () => {
 
+        this.printLastCommandResult();
+
         RNFFmpeg.enableLogCallback(this.logCallback);
 
         this.setLogLevel();
@@ -216,6 +218,18 @@ class VideoScreen extends React.Component {
             ', size: ' + statisticsData.size + ', time: ' + statisticsData.time);
     };
 
+    printLastCommandResult() {
+        console.log("Printing last command result.");
+
+        RNFFmpeg.getLastReturnCode().then(result => {
+            console.log("Last return code: " + result.lastRc);
+        });
+
+        RNFFmpeg.getLastCommandOutput().then(result => {
+            console.log("Last command output: \"" + result.lastCommandOutput + "\"");
+        });
+    }
+
     getLastReceivedStatistics = () => {
         RNFFmpeg.getLastReceivedStatistics().then(stats => console.log('Stats: ' + JSON.stringify(stats)));
     };
@@ -289,7 +303,7 @@ class VideoScreen extends React.Component {
                     console.log(command);
 
                     execute(command).then(rc => {
-                        this.getMediaInformation();
+                        this.printLastCommandResult();
                     });
 
                 }).catch((err) => {
