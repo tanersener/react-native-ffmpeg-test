@@ -10,7 +10,7 @@
   "dependencies": {
     "react": "16.10.2",
     "react-native": "0.61.2",
-    "react-native-ffmpeg": "0.4.0",
+    "react-native-ffmpeg": "0.4.1",
     "react-native-fs": "^2.16.1",
     "react-native-gesture-handler": "^1.4.1",
     "react-navigation": "^3.11.1"

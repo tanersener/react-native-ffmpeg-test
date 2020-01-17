@@ -1,18 +1,28 @@
 import React from 'react';
 import {Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {createAppContainer, createBottomTabNavigator} from 'react-navigation'
-import {LogLevel, RNFFmpeg} from 'react-native-ffmpeg';
+import {LogLevel, RNFFmpegConfig, RNFFmpeg, RNFFprobe} from 'react-native-ffmpeg';
 import RNFS from 'react-native-fs';
 import {VideoUtil} from './VideoUtil';
 import {TestUtil} from './Test';
 
-async function execute(command) {
+async function executeFFmpeg(command) {
     await RNFFmpeg.execute(command).then(result => console.log("FFmpeg process exited with rc " + result.rc));
 }
 
-async function executeWithArguments(commandArguments) {
+async function executeFFmpegWithArguments(commandArguments) {
     await RNFFmpeg.executeWithArguments(commandArguments).then(data => {
         console.log("FFmpeg process exited with rc " + data.rc);
+    });
+}
+
+async function executeFFprobe(command) {
+    await RNFFprobe.execute(command).then(result => console.log("FFprobe process exited with rc " + result.rc));
+}
+
+async function executeFFprobeWithArguments(commandArguments) {
+    await RNFFprobe.executeWithArguments(commandArguments).then(data => {
+        console.log("FFprobe process exited with rc " + data.rc);
     });
 }
 
@@ -49,8 +59,15 @@ class CommandScreen extends React.Component {
                 <View style={commandScreenStyles.runViewStyle}>
                     <TouchableOpacity
                         style={commandScreenStyles.runButtonStyle}
-                        onPress={this.run}>
-                        <Text style={commandScreenStyles.buttonTextStyle}>RUN</Text>
+                        onPress={this.runFFmpeg}>
+                        <Text style={commandScreenStyles.buttonTextStyle}>RUN FFMPEG</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={commandScreenStyles.runViewStyle}>
+                    <TouchableOpacity
+                        style={commandScreenStyles.runButtonStyle}
+                        onPress={this.runFFprobe}>
+                        <Text style={commandScreenStyles.buttonTextStyle}>RUN FFPROBE</Text>
                     </TouchableOpacity>
                 </View>
                 <View style={commandScreenStyles.commandOutputViewStyle}>
@@ -69,17 +86,17 @@ class CommandScreen extends React.Component {
     setLogLevel() {
         console.log("Setting log level to AV_LOG_INFO.");
 
-        RNFFmpeg.setLogLevel(LogLevel.AV_LOG_INFO);
+        RNFFmpegConfig.setLogLevel(LogLevel.AV_LOG_INFO);
     }
 
     printExternalLibraries() {
         console.log("Printing external libraries.");
 
-        RNFFmpeg.getPackageName().then(result => {
+        RNFFmpegConfig.getPackageName().then(result => {
             console.log("Package name: " + result.packageName);
         });
 
-        RNFFmpeg.getExternalLibraries().then(result => {
+        RNFFmpegConfig.getExternalLibraries().then(result => {
             console.log("External libraries: " + result);
         });
     }
@@ -87,11 +104,11 @@ class CommandScreen extends React.Component {
     printLastCommandResult() {
         console.log("Printing last command result.");
 
-        RNFFmpeg.getLastReturnCode().then(result => {
+        RNFFmpegConfig.getLastReturnCode().then(result => {
             console.log("Last return code: " + result.lastRc);
         });
 
-        RNFFmpeg.getLastCommandOutput().then(result => {
+        RNFFmpegConfig.getLastCommandOutput().then(result => {
             console.log("Last command output: " + result.lastCommandOutput);
         });
     }
@@ -99,7 +116,7 @@ class CommandScreen extends React.Component {
     registerNewFFmpegPipe() {
         console.log("Creating new FFmpeg pipe.");
 
-        RNFFmpeg.registerNewFFmpegPipe().then(result => {
+        RNFFmpegConfig.registerNewFFmpegPipe().then(result => {
             console.log("Pipe path is " + result.pipe);
         });
     }
@@ -107,7 +124,7 @@ class CommandScreen extends React.Component {
     setCustomFontDirectory() {
         console.log("Registering cache directory as font directory.");
 
-        RNFFmpeg.setFontDirectory(RNFS.CachesDirectoryPath, {
+        RNFFmpegConfig.setFontDirectory(RNFS.CachesDirectoryPath, {
             my_easy_font_name: "my complex font name",
             my_font_name_2: "my complex font name"
         });
@@ -116,11 +133,11 @@ class CommandScreen extends React.Component {
     setFontconfigConfguration() {
         console.log("Registering cache directory as fontconfig directory.");
 
-        RNFFmpeg.setFontconfigConfigurationPath(RNFS.CachesDirectoryPath);
+        RNFFmpegConfig.setFontconfigConfigurationPath(RNFS.CachesDirectoryPath);
     }
 
     runWithArguments = () => {
-        RNFFmpeg.enableLogCallback(this.logCallback);
+        RNFFmpegConfig.enableLogCallback(this.logCallback);
 
         // CLEAR COMMAND OUTPUT FIRST
         this.setState({commandOutput: ''});
@@ -129,14 +146,15 @@ class CommandScreen extends React.Component {
 
         console.log("FFmpeg process started with arguments");
 
-        executeWithArguments(["-v", "debug", "-version"]);
+        executeFFmpegWithArguments(["-v", "debug", "-version"]);
     };
 
-    run = () => {
+    runFFmpeg = () => {
 
+        this.printExternalLibraries();
         this.printLastCommandResult();
 
-        RNFFmpeg.enableLogCallback(this.logCallback);
+        RNFFmpegConfig.enableLogCallback(this.logCallback);
 
         this.setLogLevel();
 
@@ -157,7 +175,37 @@ class CommandScreen extends React.Component {
         console.log(this.state.command);
 
         if ((this.state.command !== undefined) && (this.state.command.length > 0)) {
-            execute(this.state.command);
+            executeFFmpeg(this.state.command);
+        }
+    };
+
+    runFFprobe = () => {
+
+        this.printExternalLibraries();
+        this.printLastCommandResult();
+
+        RNFFmpegConfig.enableLogCallback(this.logCallback);
+
+        this.setLogLevel();
+
+        // CLEAR COMMAND OUTPUT FIRST
+        this.setState({commandOutput: ''});
+
+        this.setFontconfigConfguration();
+        this.setCustomFontDirectory();
+        this.registerNewFFmpegPipe();
+
+        console.log('Testing parseArguments.');
+
+        TestUtil.testParseArguments();
+
+        console.log("Testing COMMAND.");
+
+        console.log("FFmpeg process started with command.");
+        console.log(this.state.command);
+
+        if ((this.state.command !== undefined) && (this.state.command.length > 0)) {
+            executeFFprobe(this.state.command);
         }
     };
 
@@ -221,21 +269,21 @@ class VideoScreen extends React.Component {
     printLastCommandResult() {
         console.log("Printing last command result.");
 
-        RNFFmpeg.getLastReturnCode().then(result => {
+        RNFFmpegConfig.getLastReturnCode().then(result => {
             console.log("Last return code: " + result.lastRc);
         });
 
-        RNFFmpeg.getLastCommandOutput().then(result => {
+        RNFFmpegConfig.getLastCommandOutput().then(result => {
             console.log("Last command output: \"" + result.lastCommandOutput + "\"");
         });
     }
 
     getLastReceivedStatistics = () => {
-        RNFFmpeg.getLastReceivedStatistics().then(stats => console.log('Stats: ' + JSON.stringify(stats)));
+        RNFFmpegConfig.getLastReceivedStatistics().then(stats => console.log('Stats: ' + JSON.stringify(stats)));
     };
 
     getMediaInformation = () => {
-        RNFFmpeg.getMediaInformation(RNFS.CachesDirectoryPath + '/video.mp4').then(info => {
+        RNFFprobe.getMediaInformation(RNFS.CachesDirectoryPath + '/video.mp4').then(info => {
             console.log('\n');
             console.log('Result: ' + JSON.stringify(info));
             console.log('Media Information');
@@ -282,8 +330,8 @@ class VideoScreen extends React.Component {
     };
 
     createVideo = () => {
-        RNFFmpeg.enableLogCallback(this.logCallback);
-        RNFFmpeg.enableStatisticsCallback(this.statisticsCallback);
+        RNFFmpegConfig.enableLogCallback(this.logCallback);
+        RNFFmpegConfig.enableStatisticsCallback(this.statisticsCallback);
 
         console.log("Testing VIDEO.");
 
@@ -302,8 +350,8 @@ class VideoScreen extends React.Component {
                     let command = VideoUtil.generateEncodeVideoScript(image1, image2, image3, videoPath, this.state.videoCodec, '');
                     console.log(command);
 
-                    execute(command).then(rc => {
-                        this.printLastCommandResult();
+                    executeFFmpeg(command).then(rc => {
+                        this.getMediaInformation();
                     });
 
                 }).catch((err) => {
@@ -394,10 +442,12 @@ const commandScreenStyles = StyleSheet.create({
     },
     runButtonStyle: {
         justifyContent: 'center',
-        width: 100,
+        width: 120,
         height: 38,
         backgroundColor: '#2ecc71',
-        borderRadius: 5
+        borderRadius: 5,
+        paddingLeft: 10,
+        paddingRight: 10
     },
     buttonTextStyle: {
         textAlign: "center",
