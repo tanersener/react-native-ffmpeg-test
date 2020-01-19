@@ -16,6 +16,12 @@ async function executeFFmpegWithArguments(commandArguments) {
     });
 }
 
+async function executeFFmpegCancel() {
+    await new Promise(resolve => setTimeout(resolve, 3000)); // 3 sec
+    await RNFFmpeg.cancel();
+    console.log("FFmpeg operation cancelled");
+}
+
 async function executeFFprobe(command) {
     await RNFFprobe.execute(command).then(result => console.log("FFprobe process exited with rc " + result.rc));
 }
@@ -353,6 +359,8 @@ class VideoScreen extends React.Component {
                     executeFFmpeg(command).then(rc => {
                         this.getMediaInformation();
                     });
+
+                    executeFFmpegCancel();
 
                 }).catch((err) => {
                     console.log('Failed to save resource: tajmahal.jpg');
