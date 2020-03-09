@@ -4,6 +4,10 @@ require_relative '../node_modules/@react-native-community/cli-platform-ios/nativ
 
 target "ReactNativeFFmpegTest" do
 
+  pod 'react-native-ffmpeg/full', :podspec => '../node_modules/react-native-ffmpeg/react-native-ffmpeg.podspec'
+
+  use_native_modules!
+
   pod 'FBLazyVector', :path => "../node_modules/react-native/Libraries/FBLazyVector"
   pod 'FBReactNativeSpec', :path => "../node_modules/react-native/Libraries/FBReactNativeSpec"
   pod 'RCTRequired', :path => "../node_modules/react-native/Libraries/RCTRequired"
@@ -37,6 +41,5 @@ target "ReactNativeFFmpegTest" do
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
   pod 'RNFS', :path => '../node_modules/react-native-fs'
-  pod 'react-native-ffmpeg/full', :podspec => '../node_modules/react-native-ffmpeg/ios/react-native-ffmpeg.podspec'
 
 end
