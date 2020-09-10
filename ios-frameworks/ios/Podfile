@@ -1,4 +1,4 @@
-platform :ios, '9.3'
+platform :ios, '10.0'
 
 #use_frameworks!
 
@@ -28,14 +28,14 @@ target "ReactNativeFFmpegIOSFrameworkTest" do
   pod 'React-jsi', :path => '../node_modules/react-native/ReactCommon/jsi'
   pod 'React-jsiexecutor', :path => '../node_modules/react-native/ReactCommon/jsiexecutor'
   pod 'React-jsinspector', :path => '../node_modules/react-native/ReactCommon/jsinspector'
-  pod 'ReactCommon/jscallinvoker', :path => "../node_modules/react-native/ReactCommon"
-  pod 'ReactCommon/turbomodule/core', :path => "../node_modules/react-native/ReactCommon"
+  pod 'React-callinvoker', :path => "../node_modules/react-native/ReactCommon/callinvoker"
+  pod 'ReactCommon/turbomodule/core', :path => "../node_modules/react-native/ReactCommon/"
   pod 'Yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
 
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
 
-  pod 'react-native-ffmpeg/https', :podspec => '../node_modules/react-native-ffmpeg/ios/react-native-ffmpeg.podspec'
+  pod 'react-native-ffmpeg/https', :podspec => '../node_modules/react-native-ffmpeg/react-native-ffmpeg.podspec'
 
 end

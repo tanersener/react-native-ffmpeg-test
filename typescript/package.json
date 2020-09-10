@@ -8,28 +8,29 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "react": "16.10.2",
-    "react-native": "0.61.2",
-    "react-native-ffmpeg": "0.4.0",
-    "react-native-fs": "^2.16.1",
-    "react-native-gesture-handler": "^1.4.1",
+    "react": "16.13.1",
+    "react-native": "0.63.2",
+    "react-native-ffmpeg": "0.4.4",
+    "react-native-fs": "^2.16.6",
+    "react-native-gesture-handler": "^1.8.0",
     "react-navigation": "^3.11.1",
+    "react-native-screens": "^2.10.1",
     "logkitty": "^0.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
     "@babel/runtime": "^7.5.4",
-    "@types/jest": "^24.0.15",
-    "@types/react": "^16.8.23",
-    "@types/react-native": "^0.60.0",
-    "@types/react-test-renderer": "^16.8.2",
-    "babel-jest": "^24.8.0",
-    "eslint": "^6.2.2",
-    "jest": "^24.8.0",
-    "metro-react-native-babel-preset": "^0.55.0",
-    "react-test-renderer": "16.8.6",
-    "ts-jest": "^24.0.2",
-    "typescript": "^3.5.3"
+    "@types/jest": "^26.0.13",
+    "@types/react": "^16.9.49",
+    "@types/react-native": "^0.63.18",
+    "@types/react-test-renderer": "^16.9.3",
+    "babel-jest": "^26.3.0",
+    "eslint": "^7.8.1",
+    "jest": "^26.3.0",
+    "metro-react-native-babel-preset": "^0.63.0",
+    "react-test-renderer": "16.13.1",
+    "ts-jest": "^26.3.0",
+    "typescript": "^4.0.2"
   },
   "jest": {
     "preset": "react-native"

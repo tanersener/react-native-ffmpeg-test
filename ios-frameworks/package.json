@@ -8,11 +8,13 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "react": "16.10.2",
-    "react-native": "0.61.2",
-    "react-native-ffmpeg": "0.4.0",
-    "react-native-gesture-handler": "^1.4.1",
+    "react": "16.13.1",
+    "react-native": "0.63.2",
+    "react-native-ffmpeg": "0.4.4",
+    "react-native-fs": "^2.16.6",
+    "react-native-gesture-handler": "^1.8.0",
     "react-navigation": "^3.11.1",
+    "react-native-screens": "^2.10.1",
     "logkitty": "^0.7.1"
   },
   "resolutions": {
