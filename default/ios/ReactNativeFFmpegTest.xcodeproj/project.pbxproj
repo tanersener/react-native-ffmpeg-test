@@ -130,10 +130,13 @@
 			buildPhases = (
 				C7AE91FD7FD2AF8E36EAE4B9 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
+				4D0B58D29AC4793D27F0A8FC /* [CP] Prepare Artifacts */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				3FDF0DA6039E504354548584 /* [CP] Copy Pods Resources */,
+				DD6868F11D0A4304234770F4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -207,6 +210,88 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
+		3FDF0DA6039E504354548584 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeFFmpegTest/Pods-ReactNativeFFmpegTest-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/AccessibilityResources.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AccessibilityResources.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeFFmpegTest/Pods-ReactNativeFFmpegTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4D0B58D29AC4793D27F0A8FC /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeFFmpegTest/Pods-ReactNativeFFmpegTest-artifacts.sh",
+				"${PODS_ROOT}/mobile-ffmpeg-full/mobileffmpeg.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libavcodec.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libavdevice.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libavfilter.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libavformat.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libavutil.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libswresample.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libswscale.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/expat.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/fontconfig.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/freetype.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/fribidi.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/giflib.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/gmp.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/gnutls.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/jpeg.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/kvazaar.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/lame.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libaom.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libass.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libhogweed.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libilbc.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libnettle.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libogg.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libopencore-amrnb.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libpng.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libsndfile.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libtheora.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libtheoradec.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libtheoraenc.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libvorbis.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libvorbisenc.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libvorbisfile.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libvpx.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libwebp.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libwebpmux.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libwebpdemux.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/libxml2.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/opus.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/shine.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/snappy.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/soxr.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/speex.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/tiff.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/twolame.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/vo-amrwbenc.xcframework",
+				"${PODS_ROOT}/mobile-ffmpeg-full/wavpack.xcframework",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputPaths = (
+				"${BUILT_PRODUCTS_DIR}/cocoapods-artifacts-${CONFIGURATION}.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeFFmpegTest/Pods-ReactNativeFFmpegTest-artifacts.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C7AE91FD7FD2AF8E36EAE4B9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -227,6 +312,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD6868F11D0A4304234770F4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeFFmpegTest/Pods-ReactNativeFFmpegTest-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/cocoapods-artifacts-${CONFIGURATION}.txt",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeFFmpegTest/Pods-ReactNativeFFmpegTest-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -279,13 +381,19 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 263026087331DCCACF407330 /* Pods-ReactNativeFFmpegTest.debug.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					x86_64,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 23;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = 98GD5J4999;
+				EXCLUDED_ARCHS = arm64;
 				INFOPLIST_FILE = ReactNativeFFmpegTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -301,9 +409,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FADF58E5AD06BB04041056BE /* Pods-ReactNativeFFmpegTest.release.xcconfig */;
 			buildSettings = {
+				ARCHS = (
+					"$(ARCHS_STANDARD)",
+					x86_64,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 23;
 				DEVELOPMENT_TEAM = 98GD5J4999;
+				EXCLUDED_ARCHS = arm64;
 				INFOPLIST_FILE = ReactNativeFFmpegTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -364,7 +477,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -410,7 +523,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

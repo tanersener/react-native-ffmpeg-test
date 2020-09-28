@@ -12,7 +12,7 @@
     "logkitty": "^0.7.1",
     "react": "16.13.1",
     "react-native": "0.63.2",
-    "react-native-ffmpeg": "0.4.4",
+    "react-native-ffmpeg": "file:../../react-native-ffmpeg",
     "react-native-fs": "^2.16.6",
     "react-native-gesture-handler": "^1.8.0",
     "react-native-reanimated": "^1.13.0",

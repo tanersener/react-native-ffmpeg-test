@@ -1,19 +1,38 @@
 import React from 'react';
 import {Platform, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View} from 'react-native';
 import {createAppContainer, createBottomTabNavigator} from 'react-navigation'
-import {LogLevel, RNFFmpegConfig, RNFFmpeg, RNFFprobe} from 'react-native-ffmpeg';
+import {LogLevel, RNFFmpeg, RNFFmpegConfig, RNFFprobe} from 'react-native-ffmpeg';
 import RNFS from 'react-native-fs';
 import {VideoUtil} from './VideoUtil';
 import {TestUtil} from './Test';
 
 async function executeFFmpeg(command) {
-    await RNFFmpeg.execute(command).then(result => console.log("FFmpeg process exited with rc " + result.rc));
+    await RNFFmpeg.execute(command).then(rc => console.log(`FFmpeg process exited with rc ${rc}.`));
 }
 
 async function executeFFmpegWithArguments(commandArguments) {
-    await RNFFmpeg.executeWithArguments(commandArguments).then(data => {
-        console.log("FFmpeg process exited with rc " + data.rc);
+    await RNFFmpeg.executeWithArguments(commandArguments).then(rc => console.log(`FFmpeg process exited with rc ${rc}`));
+}
+
+async function executeFFmpegAsync(command) {
+    await RNFFmpeg.executeAsync(command).then(executionId => console.log(`FFmpeg process started with executionId ${executionId}.`));
+}
+
+async function executeFFmpegAsyncAndCancel(command) {
+    await RNFFmpeg.executeAsync(command).then(executionId => {
+        console.log(`FFmpeg process started with executionId ${executionId}.`);
+        // executeFFmpegCancel();
+        executeFFmpegCancelExecution(executionId);
     });
+}
+
+async function executeFFmpegAsyncAndListExecutions(command) {
+    await RNFFmpeg.executeAsync(command).then(executionId => console.log(`FFmpeg process started with executionId ${executionId}.`));
+    listExecutions();
+}
+
+async function executeFFmpegAsyncWithArguments(commandArguments) {
+    await RNFFmpeg.executeAsyncWithArguments(commandArguments).then(executionId => console.log(`FFmpeg process started with executionId ${executionId}.`));
 }
 
 async function executeFFmpegCancel() {
@@ -22,14 +41,61 @@ async function executeFFmpegCancel() {
     console.log("FFmpeg operation cancelled");
 }
 
+async function executeFFmpegCancelExecution(executionId) {
+    await new Promise(resolve => setTimeout(resolve, 3000)); // 3 sec
+    await RNFFmpeg.cancelExecution(executionId);
+    console.log(`FFmpeg operation cancelled for ${executionId}`);
+}
+
+async function listExecutions() {
+    RNFFmpeg.listExecutions().then(executionList => {
+        executionList.forEach(execution => {
+            console.log(`Execution id is ${execution.executionId}`);
+            console.log(`Execution start time is ` + new Date(execution.startTime));
+            console.log(`Execution command is ${execution.command}`);
+        });
+    });
+}
+
 async function executeFFprobe(command) {
-    await RNFFprobe.execute(command).then(result => console.log("FFprobe process exited with rc " + result.rc));
+    await RNFFprobe.execute(command).then(rc => console.log(`FFprobe process exited with rc ${rc}`));
 }
 
 async function executeFFprobeWithArguments(commandArguments) {
-    await RNFFprobe.executeWithArguments(commandArguments).then(data => {
-        console.log("FFprobe process exited with rc " + data.rc);
+    await RNFFprobe.executeWithArguments(commandArguments).then(rc => console.log(`FFprobe process exited with rc ${rc}`));
+}
+
+function testConfigFunctions() {
+    RNFFmpegConfig.getLogLevel().then(level => console.log(`Current log level is ${RNFFmpegConfig.logLevelToString(level)}`));
+    console.log("Setting log level to AV_LOG_INFO.");
+    RNFFmpegConfig.setLogLevel(LogLevel.AV_LOG_INFO);
+    RNFFmpegConfig.getLogLevel().then(level => console.log(`New log level is ${RNFFmpegConfig.logLevelToString(level)}`));
+
+    RNFFmpegConfig.setFontDirectory(RNFS.CachesDirectoryPath, {
+        my_easy_font_name: "my complex font name",
+        my_font_name_2: "my complex font name"
     });
+    console.log("Registered cache directory as font directory.");
+
+    RNFFmpegConfig.setFontconfigConfigurationPath(RNFS.CachesDirectoryPath);
+    console.log("Registered cache directory as fontconfig directory.");
+
+    RNFFmpegConfig.getPackageName().then(packageName => console.log(`Package name: ${packageName}`));
+    RNFFmpegConfig.getExternalLibraries().then(result => console.log(`External libraries: ${result}`));
+    RNFFmpegConfig.getLastReturnCode().then(rc => console.log(`Last return code: ${rc}`));
+    RNFFmpegConfig.getLastCommandOutput().then(output => console.log(`Last command output: ${output}`));
+    RNFFmpegConfig.registerNewFFmpegPipe().then(pipe => console.log(`Pipe path is ${pipe}`));
+    RNFFmpegConfig.getLastReceivedStatistics().then(statistics =>
+        console.log('Last statistics; executionId: ' + statistics.executionId + ', frame: ' + statistics.videoFrameNumber.toFixed(1) + ', fps: ' + statistics.videoFps.toFixed(1) + ', quality: ' + statistics.videoQuality.toFixed(1) + ', size: ' + statistics.size + ', time: ' + statistics.time)
+    );
+}
+
+function testSetEnvironmentVariable() {
+    var now = new Date();
+    var today = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`;
+
+    console.log("Setting FFREPORT environment variables.");
+    RNFFmpegConfig.setEnvironmentVariable("FFREPORT", `file=${RNFS.CachesDirectoryPath}/${today}-ffreport.txt`);
 }
 
 class CommandScreen extends React.Component {
@@ -40,6 +106,9 @@ class CommandScreen extends React.Component {
             command: '',
             commandOutput: ''
         };
+
+        RNFFmpegConfig.getFFmpegVersion().then(version => console.log(`FFmpeg version: ${version}`));
+        RNFFmpegConfig.getPlatform().then(platform => console.log(`Platform: ${platform}`));
     }
 
     render() {
@@ -86,132 +155,85 @@ class CommandScreen extends React.Component {
     };
 
     logCallback = (logData) => {
-        this.setState({commandOutput: this.state.commandOutput + logData.log});
+        this.setState({commandOutput: this.state.commandOutput + logData.executionId + ":" + logData.level + ":" + logData.log});
     };
 
-    setLogLevel() {
-        console.log("Setting log level to AV_LOG_INFO.");
-
-        RNFFmpegConfig.setLogLevel(LogLevel.AV_LOG_INFO);
-    }
-
-    printExternalLibraries() {
-        console.log("Printing external libraries.");
-
-        RNFFmpegConfig.getPackageName().then(result => {
-            console.log("Package name: " + result.packageName);
-        });
-
-        RNFFmpegConfig.getExternalLibraries().then(result => {
-            console.log("External libraries: " + result);
-        });
-    }
-
-    printLastCommandResult() {
-        console.log("Printing last command result.");
-
-        RNFFmpegConfig.getLastReturnCode().then(result => {
-            console.log("Last return code: " + result.lastRc);
-        });
-
-        RNFFmpegConfig.getLastCommandOutput().then(result => {
-            console.log("Last command output: " + result.lastCommandOutput);
-        });
-    }
-
-    registerNewFFmpegPipe() {
-        console.log("Creating new FFmpeg pipe.");
-
-        RNFFmpegConfig.registerNewFFmpegPipe().then(result => {
-            console.log("Pipe path is " + result.pipe);
-        });
-    }
-
-    setCustomFontDirectory() {
-        console.log("Registering cache directory as font directory.");
-
-        RNFFmpegConfig.setFontDirectory(RNFS.CachesDirectoryPath, {
-            my_easy_font_name: "my complex font name",
-            my_font_name_2: "my complex font name"
-        });
-    }
-
-    setFontconfigConfguration() {
-        console.log("Registering cache directory as fontconfig directory.");
-
-        RNFFmpegConfig.setFontconfigConfigurationPath(RNFS.CachesDirectoryPath);
+    clearLog() {
+        this.setState({commandOutput: ''});
     }
 
     runWithArguments = () => {
         RNFFmpegConfig.enableLogCallback(this.logCallback);
 
         // CLEAR COMMAND OUTPUT FIRST
-        this.setState({commandOutput: ''});
+        this.clearLog();
 
         console.log("Testing COMMAND with ARGUMENTS.");
 
-        console.log("FFmpeg process started with arguments");
-
         executeFFmpegWithArguments(["-v", "debug", "-version"]);
+
+        console.log("FFmpeg process started with arguments \"-v debug -version\"");
     };
 
     runFFmpeg = () => {
-
-        this.printExternalLibraries();
-        this.printLastCommandResult();
-
         RNFFmpegConfig.enableLogCallback(this.logCallback);
 
-        this.setLogLevel();
+        testConfigFunctions();
+        testSetEnvironmentVariable();
 
         // CLEAR COMMAND OUTPUT FIRST
-        this.setState({commandOutput: ''});
-
-        this.setFontconfigConfguration();
-        this.setCustomFontDirectory();
-        this.registerNewFFmpegPipe();
+        this.clearLog();
 
         console.log('Testing parseArguments.');
 
         TestUtil.testParseArguments();
 
-        console.log("Testing COMMAND.");
-
-        console.log("FFmpeg process started with command.");
-        console.log(this.state.command);
+        console.log("Testing FFmpeg COMMAND.");
 
         if ((this.state.command !== undefined) && (this.state.command.length > 0)) {
             executeFFmpeg(this.state.command);
+            console.log(`FFmpeg process started with command ${this.state.command}.`);
+        } else {
+            console.log(`Command is empty.`);
+        }
+    };
+
+    runAsyncFFmpeg = () => {
+        RNFFmpegConfig.enableLogCallback(this.logCallback);
+
+        // CLEAR COMMAND OUTPUT FIRST
+        this.clearLog();
+
+        console.log("Testing Async FFmpeg COMMAND.");
+
+        if ((this.state.command !== undefined) && (this.state.command.length > 0)) {
+            executeFFmpegAsync(RNFFmpeg.parseArguments(this.state.command));
+            console.log(`FFmpeg process started with command ${this.state.command}.`);
+        } else {
+            console.log(`Command is empty.`);
         }
     };
 
     runFFprobe = () => {
-
-        this.printExternalLibraries();
-        this.printLastCommandResult();
-
         RNFFmpegConfig.enableLogCallback(this.logCallback);
 
-        this.setLogLevel();
+        testConfigFunctions();
+        testSetEnvironmentVariable();
 
         // CLEAR COMMAND OUTPUT FIRST
-        this.setState({commandOutput: ''});
-
-        this.setFontconfigConfguration();
-        this.setCustomFontDirectory();
-        this.registerNewFFmpegPipe();
+        this.clearLog();
 
         console.log('Testing parseArguments.');
 
         TestUtil.testParseArguments();
 
-        console.log("Testing COMMAND.");
-
-        console.log("FFmpeg process started with command.");
-        console.log(this.state.command);
+        console.log("Testing FFprobe COMMAND.");
 
         if ((this.state.command !== undefined) && (this.state.command.length > 0)) {
             executeFFprobe(this.state.command);
+            console.log(`FFmpeg process started with command ${this.state.command}.`);
+        } else {
+            console.log(`Command is empty.`);
         }
     };
 
@@ -268,66 +290,51 @@ class VideoScreen extends React.Component {
     };
 
     statisticsCallback = (statisticsData) => {
-        console.log('Statistics; frame: ' + statisticsData.videoFrameNumber.toFixed(1) + ', fps: ' + statisticsData.videoFps.toFixed(1) + ', quality: ' + statisticsData.videoQuality.toFixed(1) +
+        console.log('Statistics; executionId: ' + statisticsData.executionId + ', frame: ' + statisticsData.videoFrameNumber.toFixed(1) + ', fps: ' + statisticsData.videoFps.toFixed(1) + ', quality: ' + statisticsData.videoQuality.toFixed(1) +
             ', size: ' + statisticsData.size + ', time: ' + statisticsData.time);
     };
 
-    printLastCommandResult() {
-        console.log("Printing last command result.");
-
-        RNFFmpegConfig.getLastReturnCode().then(result => {
-            console.log("Last return code: " + result.lastRc);
-        });
-
-        RNFFmpegConfig.getLastCommandOutput().then(result => {
-            console.log("Last command output: \"" + result.lastCommandOutput + "\"");
-        });
-    }
-
-    getLastReceivedStatistics = () => {
-        RNFFmpegConfig.getLastReceivedStatistics().then(stats => console.log('Stats: ' + JSON.stringify(stats)));
+    executeCallback = (executeData) => {
+        console.log(`Async execution ${executeData.executionId} ended with ${executeData.returnCode}`);
+        if (executeData.returnCode === 0) {
+            this.testGetMediaInformation();
+        }
     };
 
-    getMediaInformation = () => {
+    clearLog() {
+        this.setState({encodeOutput: ''});
+    }
+
+    testGetMediaInformation = () => {
         RNFFprobe.getMediaInformation(RNFS.CachesDirectoryPath + '/video.mp4').then(info => {
             console.log('\n');
             console.log('Result: ' + JSON.stringify(info));
             console.log('Media Information');
-            console.log('Path: ' + info.path);
-            console.log('Format: ' + info.format);
-            console.log('Duration: ' + info.duration);
-            console.log('Start time: ' + info.startTime);
-            console.log('Bitrate: ' + info.bitrate);
+            console.log('Path: ' + info.format.filename);
+            console.log('Format: ' + info.format.format_name);
+            console.log('Duration: ' + info.format.duration);
+            console.log('Start time: ' + info.format.start_time);
+            console.log('Bitrate: ' + info.format.bit_rate);
             if (info.streams) {
                 for (var i = 0; i < info.streams.length; i++) {
                     console.log('Stream id: ' + info.streams[i].index);
-                    console.log('Stream type: ' + info.streams[i].type);
-                    console.log('Stream codec: ' + info.streams[i].codec);
-                    console.log('Stream full codec: ' + info.streams[i].fullCodec);
-                    console.log('Stream format: ' + info.streams[i].format);
-                    console.log('Stream full format: ' + info.streams[i].fullFormat);
+                    console.log('Stream type: ' + info.streams[i].codec_type);
+                    console.log('Stream codec: ' + info.streams[i].codec_name);
+                    console.log('Stream format: ' + info.streams[i].pix_fmt);
+                    console.log('Stream full format: ' + info.streams[i].format_name);
                     console.log('Stream width: ' + info.streams[i].width);
                     console.log('Stream height: ' + info.streams[i].height);
-                    console.log('Stream bitrate: ' + info.streams[i].bitrate);
-                    console.log('Stream sample rate: ' + info.streams[i].sampleRate);
-                    console.log('Stream sample format: ' + info.streams[i].sampleFormat);
-                    console.log('Stream channel layout: ' + info.streams[i].channelLayout);
-                    console.log('Stream sar: ' + info.streams[i].sampleAspectRatio);
-                    console.log('Stream dar: ' + info.streams[i].displayAspectRatio);
-                    console.log('Stream average frame rate: ' + info.streams[i].averageFrameRate);
-                    console.log('Stream real frame rate: ' + info.streams[i].realFrameRate);
-                    console.log('Stream time base: ' + info.streams[i].timeBase);
-                    console.log('Stream codec time base: ' + info.streams[i].codecTimeBase);
+                    console.log('Stream bitrate: ' + info.streams[i].bit_rate);
+                    console.log('Stream sar: ' + info.streams[i].sample_aspect_ratio);
+                    console.log('Stream dar: ' + info.streams[i].display_aspect_ratio);
+                    console.log('Stream average frame rate: ' + info.streams[i].avg_frame_rate);
+                    console.log('Stream real frame rate: ' + info.streams[i].r_frame_rate);
+                    console.log('Stream time base: ' + info.streams[i].time_base);
+                    console.log('Stream codec time base: ' + info.streams[i].codec_time_base);
 
-                    if (info.streams[i].metadata) {
-                        console.log('Stream metadata encoder: ' + info.streams[i].metadata.encoder);
-                        console.log('Stream metadata rotate: ' + info.streams[i].metadata.rotate);
-                        console.log('Stream metadata creation time: ' + info.streams[i].metadata.creation_time);
-                        console.log('Stream metadata handler name: ' + info.streams[i].metadata.handler_name);
-                    }
-
-                    if (info.streams[i].sidedata) {
-                        console.log('Stream side data displaymatrix: ' + info.streams[i].sidedata.displaymatrix);
+                    if (info.streams[i].tags) {
+                        console.log('Stream tags language: ' + info.streams[i].tags.language);
+                        console.log('Stream tags handler name: ' + info.streams[i].tags.handler_name);
                     }
                 }
             }
@@ -338,8 +345,14 @@ class VideoScreen extends React.Component {
     createVideo = () => {
         RNFFmpegConfig.enableLogCallback(this.logCallback);
         RNFFmpegConfig.enableStatisticsCallback(this.statisticsCallback);
+        RNFFmpegConfig.enableExecuteCallback(this.executeCallback);
 
-        console.log("Testing VIDEO.");
+        this.clearLog();
+
+        console.log("Testing Encoding VIDEO.");
+
+        testConfigFunctions();
+        testSetEnvironmentVariable();
 
         VideoUtil.resourcePath('colosseum.jpg').then((image1) => {
             console.log('Saved resource colosseum.jpg to ' + image1);
@@ -354,13 +367,11 @@ class VideoScreen extends React.Component {
 
                     console.log("FFmpeg process started with arguments");
                     let command = VideoUtil.generateEncodeVideoScript(image1, image2, image3, videoPath, this.state.videoCodec, '');
-                    console.log(command);
 
-                    executeFFmpeg(command).then(rc => {
-                        this.getMediaInformation();
-                    });
-
-                    executeFFmpegCancel();
+                    executeFFmpegAsyncAndListExecutions(command);
+                    // executeFFmpegAsyncAndCancel(command);
+                    // executeFFmpegAsyncWithArguments(RNFFmpeg.parseArguments(command));
+                    // this.testGetMediaInformation();
 
                 }).catch((err) => {
                     console.log('Failed to save resource: tajmahal.jpg');
