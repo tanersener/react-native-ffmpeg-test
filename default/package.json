@@ -1,6 +1,6 @@
 {
   "name": "react-native-ffmpeg-test",
-  "version": "0.1.2",
+  "version": "0.5.0",
   "private": true,
   "scripts": {
     "start": "react-native start",
@@ -8,17 +8,20 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@react-navigation/bottom-tabs": "^5.8.0",
+    "@react-native-community/picker": "^1.8.0",
+    "@react-navigation/material-top-tabs": "^5.2.19",
+    "@react-navigation/native": "^5.7.6",
     "logkitty": "^0.7.1",
+    "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-native": "0.63.2",
     "react-native-ffmpeg": "file:../../react-native-ffmpeg",
     "react-native-fs": "^2.16.6",
     "react-native-gesture-handler": "^1.8.0",
-    "react-native-reanimated": "^1.13.0",
-    "react-native-safe-area-context": "^3.1.7",
-    "react-native-screens": "^2.10.1",
-    "react-navigation": "^3.11.1"
+    "react-native-reanimated": "^1.13.1",
+    "react-native-screens": "^2.11.0",
+    "react-native-tab-view": "^2.15.2",
+    "react-native-video": "^5.1.0-alpha8"
   },
   "devDependencies": {
     "@babel/core": "^7.5.4",
