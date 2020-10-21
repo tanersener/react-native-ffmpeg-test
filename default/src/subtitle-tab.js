@@ -80,7 +80,6 @@ export default class SubtitleTab extends React.Component {
                 ffprint(
                     `FFmpeg process exited with rc ${completedExecution.returnCode}.`);
 
-                this.hideProgressDialog();
                 if (completedExecution.returnCode === 0) {
                     ffprint(
                         "Create completed successfully; burning subtitles.");
@@ -118,6 +117,8 @@ export default class SubtitleTab extends React.Component {
                             ffprint(`Async FFmpeg process started with arguments \'${burnSubtitlesCommand}\' and executionId ${executionId}.`);
                         }
                     );
+                } else {
+                    this.hideProgressDialog();
                 }
             }
         ).then(executionId => {
@@ -213,7 +214,7 @@ export default class SubtitleTab extends React.Component {
                        }}
                        hideShutterView={true}
                        paused={this.state.paused}
-                       onError={this.onPlayError}
+                       // onError={this.onPlayError}
                        resizeMode={"stretch"}
                        style={styles.videoPlayerViewStyle}/>
             </View>

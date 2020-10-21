@@ -7,7 +7,8 @@ import {
     enableStatisticsCallback,
     executeFFmpegAsync,
     registerNewFFmpegPipe,
-    resetStatistics
+    resetStatistics,
+    writeToPipe
 } from './react-native-ffmpeg-api-wrapper';
 import {styles} from './style';
 import {showPopup, Toast} from "./popup";
@@ -52,7 +53,7 @@ export default class PipeTab extends React.Component {
     }
 
     asyncAssetWriteToPipe(assetName, pipePath) {
-        VideoUtil.assetToPipe(assetName, pipePath);
+        writeToPipe(VideoUtil.assetPath(assetName), pipePath);
     }
 
     createVideo = () => {
@@ -165,7 +166,7 @@ export default class PipeTab extends React.Component {
                        }}
                        hideShutterView={true}
                        paused={this.state.paused}
-                       onError={this.onPlayError}
+                    // onError={this.onPlayError}
                        resizeMode={"stretch"}
                        style={styles.videoPlayerViewStyle}/>
             </View>

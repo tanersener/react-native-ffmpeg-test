@@ -111,3 +111,7 @@ export function getMediaInformation(path) {
 export function registerNewFFmpegPipe() {
     return RNFFmpegConfig.registerNewFFmpegPipe();
 }
+
+export function writeToPipe(inputPath, pipePath) {
+    return RNFFmpegConfig.writeToPipe(inputPath, pipePath);
+}

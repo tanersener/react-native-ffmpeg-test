@@ -156,11 +156,11 @@ const styles = StyleSheet.create({
         top: Math.round((window.height - 120) / 2)
     },
     smallPanel: {
-        height: 80,
+        height: 100
     },
     largePanel: {
         height: 140,
-        paddingBottom: 30,
+        paddingBottom: 30
     },
     loadingPanel: {
         flex: 1,

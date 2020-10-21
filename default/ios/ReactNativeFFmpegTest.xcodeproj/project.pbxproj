@@ -11,6 +11,10 @@
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		340CD0CE253FA6A50040F6E0 /* subtitle.srt in Resources */ = {isa = PBXBuildFile; fileRef = 340CD0CA253FA6A50040F6E0 /* subtitle.srt */; };
+		340CD0CF253FA6A50040F6E0 /* sil_open_font_license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 340CD0CB253FA6A50040F6E0 /* sil_open_font_license.txt */; };
+		340CD0D0253FA6A50040F6E0 /* doppioone_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 340CD0CC253FA6A50040F6E0 /* doppioone_regular.ttf */; };
+		340CD0D1253FA6A50040F6E0 /* truenorg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 340CD0CD253FA6A50040F6E0 /* truenorg.otf */; };
 		3484A80D22D9DD450067B228 /* colosseum.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3484A80A22D9DD450067B228 /* colosseum.jpg */; };
 		3484A80E22D9DD450067B228 /* pyramid.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3484A80B22D9DD450067B228 /* pyramid.jpg */; };
 		3484A80F22D9DD450067B228 /* tajmahal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3484A80C22D9DD450067B228 /* tajmahal.jpg */; };
@@ -27,6 +31,10 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ReactNativeFFmpegTest/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ReactNativeFFmpegTest/main.m; sourceTree = "<group>"; };
 		263026087331DCCACF407330 /* Pods-ReactNativeFFmpegTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeFFmpegTest.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeFFmpegTest/Pods-ReactNativeFFmpegTest.debug.xcconfig"; sourceTree = "<group>"; };
+		340CD0CA253FA6A50040F6E0 /* subtitle.srt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = subtitle.srt; sourceTree = "<group>"; };
+		340CD0CB253FA6A50040F6E0 /* sil_open_font_license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sil_open_font_license.txt; sourceTree = "<group>"; };
+		340CD0CC253FA6A50040F6E0 /* doppioone_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = doppioone_regular.ttf; sourceTree = "<group>"; };
+		340CD0CD253FA6A50040F6E0 /* truenorg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = truenorg.otf; sourceTree = "<group>"; };
 		3484A80A22D9DD450067B228 /* colosseum.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = colosseum.jpg; sourceTree = "<group>"; };
 		3484A80B22D9DD450067B228 /* pyramid.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pyramid.jpg; sourceTree = "<group>"; };
 		3484A80C22D9DD450067B228 /* tajmahal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tajmahal.jpg; sourceTree = "<group>"; };
@@ -75,6 +83,10 @@
 		3484A80922D9DD450067B228 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				340CD0CC253FA6A50040F6E0 /* doppioone_regular.ttf */,
+				340CD0CB253FA6A50040F6E0 /* sil_open_font_license.txt */,
+				340CD0CA253FA6A50040F6E0 /* subtitle.srt */,
+				340CD0CD253FA6A50040F6E0 /* truenorg.otf */,
 				3484A80A22D9DD450067B228 /* colosseum.jpg */,
 				3484A80B22D9DD450067B228 /* pyramid.jpg */,
 				3484A80C22D9DD450067B228 /* tajmahal.jpg */,
@@ -186,10 +198,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3484A80E22D9DD450067B228 /* pyramid.jpg in Resources */,
+				340CD0CE253FA6A50040F6E0 /* subtitle.srt in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				340CD0CF253FA6A50040F6E0 /* sil_open_font_license.txt in Resources */,
 				3484A80D22D9DD450067B228 /* colosseum.jpg in Resources */,
 				3484A80F22D9DD450067B228 /* tajmahal.jpg in Resources */,
+				340CD0D1253FA6A50040F6E0 /* truenorg.otf in Resources */,
+				340CD0D0253FA6A50040F6E0 /* doppioone_regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

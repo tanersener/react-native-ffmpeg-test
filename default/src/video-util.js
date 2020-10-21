@@ -65,16 +65,6 @@ export default class VideoUtil {
         return RNFS.unlink(videoFile).catch(_ => _);
     }
 
-    static assetToPipe(assetName, pipePath) {
-        RNFS.readFile(VideoUtil.assetPath(assetName), 'base64').then(
-            assetByteData => {
-                RNFS.appendFile(pipePath, assetByteData, 'base64').then(
-                    _ => ffprint(`assets/${assetName} saved to pipe at ${pipePath}.`)
-                );
-            }
-        );
-    }
-
     static assetPath(assetName) {
         if (Platform.OS === 'ios') {
             return VideoUtil.iosAssetPath(assetName);

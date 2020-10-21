@@ -206,25 +206,23 @@ export default class AudioTab extends React.Component {
                         ReactNativeFFmpegTest
                     </Text>
                 </View>
-                <View style={[styles.pickerViewStyle, styles.largePickerViewStyle]}>
+                <View>
                     <Picker
                         selectedValue={this.state.selectedCodec}
-                        style={[styles.pickerStyle, styles.largePickerStyle]}
-                        mode="dropdown"
                         onValueChange={(itemValue, itemIndex) =>
                             this.setState({selectedCodec: itemValue})
                         }>
-                        <Picker.Item label="    mp2 (twolame)" value="mp2 (twolame)"/>
-                        <Picker.Item label="     mp3 (liblame)" value="mp3 (liblame)"/>
-                        <Picker.Item label="     mp3 (libshine)" value="mp3 (libshine)"/>
-                        <Picker.Item label="            vorbis" value="vorbis"/>
-                        <Picker.Item label="             opus" value="opus"/>
-                        <Picker.Item label="           amr-nb" value="amr-nb"/>
-                        <Picker.Item label="           amr-wb" value="amr-wb"/>
-                        <Picker.Item label="              ilbc" value="ilbc"/>
-                        <Picker.Item label="             soxr" value="soxr"/>
-                        <Picker.Item label="            speex" value="speex"/>
-                        <Picker.Item label="          wavpack" value="wavpack"/>
+                        <Picker.Item label="mp2 (twolame)" value="mp2 (twolame)"/>
+                        <Picker.Item label="mp3 (liblame)" value="mp3 (liblame)"/>
+                        <Picker.Item label="mp3 (libshine)" value="mp3 (libshine)"/>
+                        <Picker.Item label="vorbis" value="vorbis"/>
+                        <Picker.Item label="opus" value="opus"/>
+                        <Picker.Item label="amr-nb" value="amr-nb"/>
+                        <Picker.Item label="amr-wb" value="amr-wb"/>
+                        <Picker.Item label="ilbc" value="ilbc"/>
+                        <Picker.Item label="soxr" value="soxr"/>
+                        <Picker.Item label="speex" value="speex"/>
+                        <Picker.Item label="wavpack" value="wavpack"/>
                     </Picker>
                 </View>
                 <View style={styles.buttonViewStyle}>

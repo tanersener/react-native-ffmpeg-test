@@ -66,7 +66,6 @@ export default class VidStabTab extends React.Component {
                 ffprint(
                     `FFmpeg process exited with rc ${completedExecution.returnCode}.`);
 
-                this.hideProgressDialog();
                 if (completedExecution.returnCode === 0) {
                     ffprint(
                         "Create completed successfully; stabilizing video.");
@@ -101,11 +100,15 @@ export default class VidStabTab extends React.Component {
 
                             }).then(executionId => ffprint(`Async FFmpeg process started with arguments \'${stabilizeVideoCommand}\' and executionId ${executionId}.`));
                         } else {
+                            ffprint(
+                                `Stabilize video failed with rc=${secondExecution.returnCode}.`);
                             this.hideProgressDialog();
                             showPopup(this.popupReference,
                                 "Stabilize video failed. Please check log for the details.");
                         }
                     }).then(executionId => ffprint(`Async FFmpeg process started with arguments \'${analyzeVideoCommand}\' and executionId ${executionId}.`));
+                } else {
+                    this.hideProgressDialog();
                 }
             }
         ).then(executionId => ffprint(`Async FFmpeg process started with arguments \'${ffmpegCommand}\' and executionId ${executionId}.`));
@@ -152,7 +155,7 @@ export default class VidStabTab extends React.Component {
     }
 
     showStabilizeProgressDialog() {
-        this.progressModalReference.current.show(`Stabilizing video`);
+        this.progressModalReference.current.update(`Stabilizing video`);
     }
 
     hideProgressDialog() {
@@ -178,7 +181,7 @@ export default class VidStabTab extends React.Component {
                        }}
                        hideShutterView={true}
                        paused={this.state.videoPaused}
-                       onError={this.onPlayError}
+                       // onError={this.onPlayError}
                        resizeMode={"stretch"}
                        style={styles.halfSizeVideoPlayerViewStyle}/>
 
@@ -199,7 +202,7 @@ export default class VidStabTab extends React.Component {
                        }}
                        hideShutterView={true}
                        paused={this.state.stabilizedVideoPaused}
-                       onError={this.onPlayError}
+                       // onError={this.onPlayError}
                        resizeMode={"stretch"}
                        style={styles.halfSizeVideoPlayerViewStyle}/>
             </View>

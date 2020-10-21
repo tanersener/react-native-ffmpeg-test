@@ -52,38 +52,6 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#fff'
     },
-    pickerViewStyle: {
-        alignSelf: 'center',
-        justifyContent: 'center',
-        height: 38,
-        marginVertical: 20,
-        marginHorizontal: 40,
-        backgroundColor: '#9B59B6',
-        borderColor: '#8E44AD',
-        borderRadius: 5
-    },
-    smallPickerViewStyle: {
-        width: 200
-    },
-    largePickerViewStyle: {
-        width: 220
-    },
-    pickerStyle: {
-        textAlign: 'center',
-        height: 38,
-        backgroundColor: "transparent",
-        fontSize: 14,
-        fontWeight: 'bold',
-        color: '#000'
-    },
-    smallPickerStyle: {
-        width: 160,
-        marginLeft: 50
-    },
-    largePickerStyle: {
-        width: 200,
-        marginLeft: 34
-    },
     videoPlayerViewStyle: {
         backgroundColor: '#ECF0F1',
         borderColor: '#B9C3C7',

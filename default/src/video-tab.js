@@ -226,25 +226,23 @@ export default class VideoTab extends React.Component {
                         ReactNativeFFmpegTest
                     </Text>
                 </View>
-                <View style={[styles.pickerViewStyle, styles.smallPickerViewStyle]}>
+                <View>
                     <Picker
                         selectedValue={this.state.selectedCodec}
-                        style={[styles.pickerStyle, styles.smallPickerStyle]}
-                        mode="dropdown"
                         onValueChange={(itemValue, itemIndex) =>
                             this.setState({selectedCodec: itemValue})
                         }>
-                        <Picker.Item label="     mpeg4" value="mpeg4"/>
-                        <Picker.Item label="       x264" value="x264"/>
-                        <Picker.Item label="  openh264" value="openh264"/>
-                        <Picker.Item label="       x265" value="x265"/>
-                        <Picker.Item label="        xvid" value="xvid"/>
-                        <Picker.Item label="        vp8" value="vp8"/>
-                        <Picker.Item label="        vp9" value="vp9"/>
-                        <Picker.Item label="        aom" value="aom"/>
-                        <Picker.Item label="     kvazaar" value="kvazaar"/>
-                        <Picker.Item label="      theora" value="theora"/>
-                        <Picker.Item label="        hap" value="hap"/>
+                        <Picker.Item label="mpeg4" value="mpeg4"/>
+                        <Picker.Item label="x264" value="x264"/>
+                        <Picker.Item label="openh264" value="openh264"/>
+                        <Picker.Item label="x265" value="x265"/>
+                        <Picker.Item label="xvid" value="xvid"/>
+                        <Picker.Item label="vp8" value="vp8"/>
+                        <Picker.Item label="vp9" value="vp9"/>
+                        <Picker.Item label="aom" value="aom"/>
+                        <Picker.Item label="kvazaar" value="kvazaar"/>
+                        <Picker.Item label="theora" value="theora"/>
+                        <Picker.Item label="hap" value="hap"/>
                     </Picker>
                 </View>
                 <View style={styles.buttonViewStyle}>
@@ -258,15 +256,16 @@ export default class VideoTab extends React.Component {
                 <ProgressModal
                     visible={false}
                     ref={this.progressModalReference}/>
-                <Video source={{uri: this.getVideoFile()}}
-                       ref={(ref) => {
-                           this.player = ref
-                       }}
-                       hideShutterView={true}
-                       paused={this.state.paused}
-                       onError={this.onPlayError}
-                       resizeMode={"stretch"}
-                       style={styles.videoPlayerViewStyle}/>
+                <Video
+                    source={{uri: this.getVideoFile()}}
+                    ref={(ref) => {
+                        this.player = ref
+                    }}
+                    hideShutterView={true}
+                    paused={this.state.paused}
+                    // onError={this.onPlayError}
+                    resizeMode={"stretch"}
+                    style={styles.videoPlayerViewStyle}/>
             </View>
         );
     }
