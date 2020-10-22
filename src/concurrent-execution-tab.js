@@ -44,7 +44,7 @@ export default class ConcurrentExecutionTab extends React.Component {
     }
 
     logCallback = (log) => {
-        this.appendLog(log.message);
+        this.appendLog(`${log.executionId}:${log.message}`);
     };
 
     appendLog(logMessage) {

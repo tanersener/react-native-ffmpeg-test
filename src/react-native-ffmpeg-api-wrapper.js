@@ -100,6 +100,10 @@ export function setFontDirectory(path, mapping) {
     RNFFmpegConfig.setFontDirectory(path, mapping);
 }
 
+export function setFontconfigConfigurationPath(path) {
+    RNFFmpegConfig.setFontconfigConfigurationPath(path);
+}
+
 export function setEnvironmentVariable(name, value) {
     RNFFmpegConfig.setEnvironmentVariable(name, value);
 }

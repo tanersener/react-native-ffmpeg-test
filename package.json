@@ -15,7 +15,7 @@
     "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-native": "0.63.2",
-    "react-native-ffmpeg": "file:../../react-native-ffmpeg",
+    "react-native-ffmpeg": "0.5.0",
     "react-native-fs": "^2.16.6",
     "react-native-gesture-handler": "^1.8.0",
     "react-native-reanimated": "^1.13.1",

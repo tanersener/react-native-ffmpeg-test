@@ -1,7 +1,11 @@
 import {Platform} from 'react-native';
 import RNFS from 'react-native-fs';
 import {ffprint, today} from './util';
-import {setEnvironmentVariable, setFontDirectory} from './react-native-ffmpeg-api-wrapper';
+import {
+    setEnvironmentVariable,
+    setFontconfigConfigurationPath,
+    setFontDirectory
+} from './react-native-ffmpeg-api-wrapper';
 
 export default class VideoUtil {
     static get ASSET_1() {
@@ -32,6 +36,7 @@ export default class VideoUtil {
         let fontNameMapping = new Map();
         fontNameMapping["MyFontName"] = "Doppio One";
         setFontDirectory(RNFS.CachesDirectoryPath, fontNameMapping);
+        setFontconfigConfigurationPath(RNFS.CachesDirectoryPath);
         setEnvironmentVariable("FFREPORT", "file=" +
             RNFS.CachesDirectoryPath + "/" + today() + "-ffreport.txt");
     }
