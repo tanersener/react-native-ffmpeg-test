@@ -8,17 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
-		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		340CD0CE253FA6A50040F6E0 /* subtitle.srt in Resources */ = {isa = PBXBuildFile; fileRef = 340CD0CA253FA6A50040F6E0 /* subtitle.srt */; };
-		340CD0CF253FA6A50040F6E0 /* sil_open_font_license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 340CD0CB253FA6A50040F6E0 /* sil_open_font_license.txt */; };
-		340CD0D0253FA6A50040F6E0 /* doppioone_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 340CD0CC253FA6A50040F6E0 /* doppioone_regular.ttf */; };
-		340CD0D1253FA6A50040F6E0 /* truenorg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 340CD0CD253FA6A50040F6E0 /* truenorg.otf */; };
-		3484A80D22D9DD450067B228 /* colosseum.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3484A80A22D9DD450067B228 /* colosseum.jpg */; };
-		3484A80E22D9DD450067B228 /* pyramid.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3484A80B22D9DD450067B228 /* pyramid.jpg */; };
-		3484A80F22D9DD450067B228 /* tajmahal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3484A80C22D9DD450067B228 /* tajmahal.jpg */; };
-		49A435C745E247AB93B70BFA /* libPods-ReactNativeFFmpegTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89D90AF229C0B2EE4BDF309C /* libPods-ReactNativeFFmpegTest.a */; };
+		344268F6258F9C7400405D6C /* doppioone_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 344268EF258F9C7400405D6C /* doppioone_regular.ttf */; };
+		344268F7258F9C7400405D6C /* truenorg.otf in Resources */ = {isa = PBXBuildFile; fileRef = 344268F0258F9C7400405D6C /* truenorg.otf */; };
+		344268F8258F9C7400405D6C /* colosseum.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 344268F1258F9C7400405D6C /* colosseum.jpg */; };
+		344268F9258F9C7400405D6C /* subtitle.srt in Resources */ = {isa = PBXBuildFile; fileRef = 344268F2258F9C7400405D6C /* subtitle.srt */; };
+		344268FA258F9C7400405D6C /* sil_open_font_license.txt in Resources */ = {isa = PBXBuildFile; fileRef = 344268F3258F9C7400405D6C /* sil_open_font_license.txt */; };
+		344268FB258F9C7400405D6C /* pyramid.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 344268F4258F9C7400405D6C /* pyramid.jpg */; };
+		344268FC258F9C7400405D6C /* tajmahal.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 344268F5258F9C7400405D6C /* tajmahal.jpg */; };
+		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		831DD937F5F69880D159C79C /* libPods-ReactNativeFFmpegTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F469CB882A4F5CF7B637073 /* libPods-ReactNativeFFmpegTest.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,22 +26,22 @@
 		13B07F961A680F5B00A75B9A /* ReactNativeFFmpegTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactNativeFFmpegTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ReactNativeFFmpegTest/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ReactNativeFFmpegTest/AppDelegate.m; sourceTree = "<group>"; };
-		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReactNativeFFmpegTest/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ReactNativeFFmpegTest/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ReactNativeFFmpegTest/main.m; sourceTree = "<group>"; };
-		263026087331DCCACF407330 /* Pods-ReactNativeFFmpegTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeFFmpegTest.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeFFmpegTest/Pods-ReactNativeFFmpegTest.debug.xcconfig"; sourceTree = "<group>"; };
-		340CD0CA253FA6A50040F6E0 /* subtitle.srt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = subtitle.srt; sourceTree = "<group>"; };
-		340CD0CB253FA6A50040F6E0 /* sil_open_font_license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sil_open_font_license.txt; sourceTree = "<group>"; };
-		340CD0CC253FA6A50040F6E0 /* doppioone_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = doppioone_regular.ttf; sourceTree = "<group>"; };
-		340CD0CD253FA6A50040F6E0 /* truenorg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = truenorg.otf; sourceTree = "<group>"; };
-		3484A80A22D9DD450067B228 /* colosseum.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = colosseum.jpg; sourceTree = "<group>"; };
-		3484A80B22D9DD450067B228 /* pyramid.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pyramid.jpg; sourceTree = "<group>"; };
-		3484A80C22D9DD450067B228 /* tajmahal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tajmahal.jpg; sourceTree = "<group>"; };
-		89D90AF229C0B2EE4BDF309C /* libPods-ReactNativeFFmpegTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeFFmpegTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1F469CB882A4F5CF7B637073 /* libPods-ReactNativeFFmpegTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeFFmpegTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		344268EF258F9C7400405D6C /* doppioone_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = doppioone_regular.ttf; sourceTree = "<group>"; };
+		344268F0258F9C7400405D6C /* truenorg.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = truenorg.otf; sourceTree = "<group>"; };
+		344268F1258F9C7400405D6C /* colosseum.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = colosseum.jpg; sourceTree = "<group>"; };
+		344268F2258F9C7400405D6C /* subtitle.srt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = subtitle.srt; sourceTree = "<group>"; };
+		344268F3258F9C7400405D6C /* sil_open_font_license.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = sil_open_font_license.txt; sourceTree = "<group>"; };
+		344268F4258F9C7400405D6C /* pyramid.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pyramid.jpg; sourceTree = "<group>"; };
+		344268F5258F9C7400405D6C /* tajmahal.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tajmahal.jpg; sourceTree = "<group>"; };
+		35EC1BB9353B79E7BB4ADB7E /* Pods-ReactNativeFFmpegTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeFFmpegTest.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeFFmpegTest/Pods-ReactNativeFFmpegTest.debug.xcconfig"; sourceTree = "<group>"; };
+		3C762D99B49077F37CB307D6 /* Pods-ReactNativeFFmpegTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeFFmpegTest.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeFFmpegTest/Pods-ReactNativeFFmpegTest.release.xcconfig"; sourceTree = "<group>"; };
+		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = ReactNativeFFmpegTest/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		FADF58E5AD06BB04041056BE /* Pods-ReactNativeFFmpegTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeFFmpegTest.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeFFmpegTest/Pods-ReactNativeFFmpegTest.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,7 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49A435C745E247AB93B70BFA /* libPods-ReactNativeFFmpegTest.a in Frameworks */,
+				831DD937F5F69880D159C79C /* libPods-ReactNativeFFmpegTest.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,7 +64,7 @@
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
-				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
+				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = ReactNativeFFmpegTest;
@@ -75,32 +75,23 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				89D90AF229C0B2EE4BDF309C /* libPods-ReactNativeFFmpegTest.a */,
+				1F469CB882A4F5CF7B637073 /* libPods-ReactNativeFFmpegTest.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		3484A80922D9DD450067B228 /* Resources */ = {
+		344268EE258F9C7400405D6C /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				340CD0CC253FA6A50040F6E0 /* doppioone_regular.ttf */,
-				340CD0CB253FA6A50040F6E0 /* sil_open_font_license.txt */,
-				340CD0CA253FA6A50040F6E0 /* subtitle.srt */,
-				340CD0CD253FA6A50040F6E0 /* truenorg.otf */,
-				3484A80A22D9DD450067B228 /* colosseum.jpg */,
-				3484A80B22D9DD450067B228 /* pyramid.jpg */,
-				3484A80C22D9DD450067B228 /* tajmahal.jpg */,
+				344268EF258F9C7400405D6C /* doppioone_regular.ttf */,
+				344268F0258F9C7400405D6C /* truenorg.otf */,
+				344268F1258F9C7400405D6C /* colosseum.jpg */,
+				344268F2258F9C7400405D6C /* subtitle.srt */,
+				344268F3258F9C7400405D6C /* sil_open_font_license.txt */,
+				344268F4258F9C7400405D6C /* pyramid.jpg */,
+				344268F5258F9C7400405D6C /* tajmahal.jpg */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		7B873B6F004C8667BB7B8E9D /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				263026087331DCCACF407330 /* Pods-ReactNativeFFmpegTest.debug.xcconfig */,
-				FADF58E5AD06BB04041056BE /* Pods-ReactNativeFFmpegTest.release.xcconfig */,
-			);
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -113,12 +104,12 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				3484A80922D9DD450067B228 /* Resources */,
+				344268EE258F9C7400405D6C /* Resources */,
 				13B07FAE1A68108700A75B9A /* ReactNativeFFmpegTest */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				7B873B6F004C8667BB7B8E9D /* Pods */,
+				BE924ADAF0D80012ABDF3DE7 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -133,6 +124,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		BE924ADAF0D80012ABDF3DE7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				35EC1BB9353B79E7BB4ADB7E /* Pods-ReactNativeFFmpegTest.debug.xcconfig */,
+				3C762D99B49077F37CB307D6 /* Pods-ReactNativeFFmpegTest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -140,15 +140,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ReactNativeFFmpegTest" */;
 			buildPhases = (
-				C7AE91FD7FD2AF8E36EAE4B9 /* [CP] Check Pods Manifest.lock */,
+				B6004A53B8F042AAAE137F20 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
-				CC6812A7968F5C2C06950533 /* [CP] Prepare Artifacts */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				3FDF0DA6039E504354548584 /* [CP] Copy Pods Resources */,
-				8F096A5CCA54C7EED3B4F730 /* [CP] Embed Pods Frameworks */,
+				8C074FD0B425BA23695F3A17 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -165,20 +163,18 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0940;
-				ORGANIZATIONNAME = Facebook;
+				LastUpgradeCheck = 1130;
 				TargetAttributes = {
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = 98GD5J4999;
+						LastSwiftMigration = 1120;
 					};
 				};
 			};
 			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ReactNativeFFmpegTest" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				English,
 				en,
 				Base,
 			);
@@ -197,15 +193,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3484A80E22D9DD450067B228 /* pyramid.jpg in Resources */,
-				340CD0CE253FA6A50040F6E0 /* subtitle.srt in Resources */,
+				344268FB258F9C7400405D6C /* pyramid.jpg in Resources */,
+				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
+				344268F9258F9C7400405D6C /* subtitle.srt in Resources */,
+				344268F8258F9C7400405D6C /* colosseum.jpg in Resources */,
+				344268F7258F9C7400405D6C /* truenorg.otf in Resources */,
+				344268FA258F9C7400405D6C /* sil_open_font_license.txt in Resources */,
+				344268FC258F9C7400405D6C /* tajmahal.jpg in Resources */,
+				344268F6258F9C7400405D6C /* doppioone_regular.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				340CD0CF253FA6A50040F6E0 /* sil_open_font_license.txt in Resources */,
-				3484A80D22D9DD450067B228 /* colosseum.jpg in Resources */,
-				3484A80F22D9DD450067B228 /* tajmahal.jpg in Resources */,
-				340CD0D1253FA6A50040F6E0 /* truenorg.otf in Resources */,
-				340CD0D0253FA6A50040F6E0 /* doppioone_regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,7 +222,7 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		3FDF0DA6039E504354548584 /* [CP] Copy Pods Resources */ = {
+		8C074FD0B425BA23695F3A17 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -244,24 +240,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeFFmpegTest/Pods-ReactNativeFFmpegTest-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8F096A5CCA54C7EED3B4F730 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeFFmpegTest/Pods-ReactNativeFFmpegTest-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/cocoapods-artifacts-${CONFIGURATION}.txt",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeFFmpegTest/Pods-ReactNativeFFmpegTest-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C7AE91FD7FD2AF8E36EAE4B9 /* [CP] Check Pods Manifest.lock */ = {
+		B6004A53B8F042AAAE137F20 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -281,70 +260,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CC6812A7968F5C2C06950533 /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeFFmpegTest/Pods-ReactNativeFFmpegTest-artifacts.sh",
-				"${PODS_ROOT}/mobile-ffmpeg-full/mobileffmpeg.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libavcodec.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libavdevice.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libavfilter.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libavformat.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libavutil.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libswresample.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libswscale.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/expat.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/fontconfig.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/freetype.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/fribidi.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/giflib.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/gmp.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/gnutls.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/jpeg.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/kvazaar.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/lame.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libaom.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libass.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libhogweed.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libilbc.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libnettle.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libogg.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libopencore-amrnb.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libpng.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libsndfile.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libtheora.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libtheoradec.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libtheoraenc.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libvorbis.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libvorbisenc.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libvorbisfile.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libvpx.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libwebp.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libwebpmux.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libwebpdemux.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/libxml2.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/opus.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/shine.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/snappy.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/soxr.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/speex.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/tiff.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/twolame.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/vo-amrwbenc.xcframework",
-				"${PODS_ROOT}/mobile-ffmpeg-full/wavpack.xcframework",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputPaths = (
-				"${BUILT_PRODUCTS_DIR}/cocoapods-artifacts-${CONFIGURATION}.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeFFmpegTest/Pods-ReactNativeFFmpegTest-artifacts.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -380,63 +295,47 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		13B07FB11A68108700A75B9A /* LaunchScreen.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				13B07FB21A68108700A75B9A /* Base */,
-			);
-			name = LaunchScreen.xib;
-			path = ReactNativeFFmpegTest;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 263026087331DCCACF407330 /* Pods-ReactNativeFFmpegTest.debug.xcconfig */;
+			baseConfigurationReference = 35EC1BB9353B79E7BB4ADB7E /* Pods-ReactNativeFFmpegTest.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 24;
-				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = 98GD5J4999;
-				EXCLUDED_ARCHS = "";
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = ReactNativeFFmpegTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.arthenica.reactnativeffmpeg.ReactNativeFFmpegTest;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ReactNativeFFmpegTest;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FADF58E5AD06BB04041056BE /* Pods-ReactNativeFFmpegTest.release.xcconfig */;
+			baseConfigurationReference = 3C762D99B49077F37CB307D6 /* Pods-ReactNativeFFmpegTest.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CURRENT_PROJECT_VERSION = 24;
-				DEVELOPMENT_TEAM = 98GD5J4999;
-				EXCLUDED_ARCHS = "";
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = ReactNativeFFmpegTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.arthenica.reactnativeffmpeg.ReactNativeFFmpegTest;
+				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = ReactNativeFFmpegTest;
+				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -445,7 +344,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -489,6 +388,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -499,7 +404,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -536,6 +441,12 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "/usr/lib/swift $(inherited)";
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift-5.0/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

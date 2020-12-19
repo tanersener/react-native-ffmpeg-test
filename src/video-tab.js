@@ -8,7 +8,7 @@ import {
     executeFFmpegAsync,
     resetStatistics
 } from './react-native-ffmpeg-api-wrapper';
-import {Picker} from '@react-native-community/picker';
+import {Picker} from '@react-native-picker/picker';
 import {styles} from './style';
 import {showPopup, Toast} from "./popup";
 import {VIDEO_TEST_TOOLTIP_TEXT} from "./tooltip";
