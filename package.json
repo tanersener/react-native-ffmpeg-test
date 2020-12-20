@@ -10,14 +10,15 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "react": "16.13.1",
-    "react-native": "0.63.4",
     "@react-native-picker/picker": "^1.9.7",
     "@react-navigation/material-top-tabs": "^5.3.10",
     "@react-navigation/native": "^5.8.10",
+    "node-fetch": "^2.6.1",
     "prop-types": "^15.7.2",
-    "react-native-fs": "^2.16.6",
+    "react": "16.13.1",
+    "react-native": "0.63.4",
     "react-native-ffmpeg": "0.5.1",
+    "react-native-fs": "^2.16.6",
     "react-native-gesture-handler": "^1.9.0",
     "react-native-reanimated": "^1.13.2",
     "react-native-screens": "^2.16.1",
