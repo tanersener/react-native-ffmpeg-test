@@ -16,6 +16,7 @@
     "node-fetch": "^2.6.1",
     "xmldom": "^0.6.0",
     "prop-types": "^15.7.2",
+    "set-value": "^4.1.0",
     "react": "^17.0.2",
     "react-native": "^0.65.1",
     "react-native-ffmpeg": "^0.5.2",
