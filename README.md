@@ -1,5 +1,8 @@
 # react-native-ffmpeg-test
-test application for [react-native-ffmpeg](https://github.com/tanersener/react-native-ffmpeg)
+Test application for [react-native-ffmpeg](https://github.com/tanersener/react-native-ffmpeg)
+
+Not maintained anymore, superseded by [FFmpegKit](https://github.com/tanersener/ffmpeg-kit) and [FFmpegKitTest](https://github.com/tanersener/ffmpeg-kit-test). See [react-native-ffmpeg to FFmpegKit Migration Guide](https://github.com/tanersener/ffmpeg-kit/wiki/Migrating-From-ReactNativeFFmpeg).
+
 
 Supports command execution, video encoding, accessing https, encoding audio, burning subtitles, video stabilisation, 
 pipe operations and concurrent command execution.
